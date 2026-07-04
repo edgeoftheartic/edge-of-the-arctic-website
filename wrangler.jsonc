@@ -8,5 +8,12 @@
   "assets": {
     "directory": "./site",
     "binding": "ASSETS"
-  }
+  },
+  "secrets_store_secrets": [
+    {
+      "binding": "STRIPE_SECRET_KEY",
+      "store_id": "2a3414372371498aac3adac03968b8d4",
+      "secret_name": "STRIPE_SECRET_KEY"
+    }
+  ]
 }
