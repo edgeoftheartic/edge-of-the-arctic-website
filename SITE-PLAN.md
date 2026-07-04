@@ -130,12 +130,17 @@ Deposit $1,000 via Stripe (refundable 30 days), balance 120 days out. At target 
 
 ## 4. Launch checklist (in order)
 
+**Account structure (handover bundle)**
+All services hang off the project Gmail (note spelling: edgeoftheartic@gmail.com):
+GitHub, Cloudflare, Web3Forms — Stripe to follow. Handing the project to Nik =
+handing over that one Gmail account (password + 2FA + recovery settings).
+
 **Before go-live**
 - [ ] Confirm guesthouse facts on /stay/ (room count, rates approach, breakfast) — written
       conservatively pending Nik's confirmation
 - [ ] Confirm flagship inclusions list & deposit/refund terms on the flagship + book pages
-- [ ] Get Web3Forms access key (free, 2 min) → replace `YOUR-WEB3FORMS-ACCESS-KEY` in
-      /book/ and /contact/ (send to nik@edgeofthearctic.travel)
+- [x] Web3Forms key wired into /book/ and /contact/ and tested live (delivers to the
+      project Gmail inbox) — done 4 Jul 2026
 - [ ] Create Stripe account → add `STRIPE_SECRET_KEY` env var in Cloudflare Pages
       (until then, deposit buttons gracefully fall back to the enquiry form)
 - [ ] Drop real photos into `site/assets/img/` (list in site/README.md) — pull from
