@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Journey — Edge of the Arctic &amp; Beyond</title>
+  <meta name="description" content="Reserve an expedition place with a deposit, or tell us about the journey you want. We reply personally within 24 hours.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">Edge of the Arctic<small>&amp; Beyond</small></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a href="/tours/">Expeditions &amp; Tours</a>
+      <a href="/stay/">Stay</a>
+      <a href="/dine/">Eat</a>
+      <a href="/explore/">Explore the Region</a>
+      <a href="/about/">About Us</a>
+      <a class="btn btn-primary" href="/book/" aria-current="page">Book Your Journey</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding:70px 0 56px">
+  <div class="container">
+    <span class="kicker">Three simple steps</span>
+    <h1>Book Your Journey</h1>
+    <hr class="dash-rule center">
+    <p class="tagline">Whether you're ready to reserve or just starting to dream, this is the place. Every enquiry is answered personally by Nik or Sara — usually within 24 hours.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="steps">
+      <div class="step">
+        <h3>Tell us what you're dreaming of</h3>
+        <p>Pick a journey below — or describe your own. Dates, group, pace, interests.</p>
+      </div>
+      <div class="step">
+        <h3>We design and confirm together</h3>
+        <p>A personal reply within 24 hours with availability, a clear itinerary and a clear price. No obligation.</p>
+      </div>
+      <div class="step">
+        <h3>Secure your place</h3>
+        <p>Confirm with a secure card deposit through Stripe. Balance due 120 days before departure. Done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dim">
+  <div class="container split" style="align-items:start">
+    <div>
+      <span class="kicker">Ready now?</span>
+      <h2>Reserve an expedition place instantly</h2>
+      <hr class="dash-rule">
+      <p>Places on our flagship expedition are limited to 24 each summer. You can hold yours right now with a <strong>$1,000 refundable deposit</strong> — fully refundable for 30 days while we confirm details together.</p>
+      <div style="margin-top:22px">
+        <p><button class="btn btn-primary btn-block" data-checkout="greenland-by-sea" data-departure="expedition-1-2027">Greenland by Sea — Expedition I (12–25 Aug 2027)</button></p>
+        <p style="margin-top:12px"><button class="btn btn-primary btn-block" data-checkout="greenland-by-sea" data-departure="expedition-2-2027">Greenland by Sea — Expedition II (19 Aug–1 Sep 2027)</button></p>
+      </div>
+      <p class="form-note">Payments are processed securely by Stripe; we never see your card details. Deposits count toward your final balance.</p>
+    </div>
+
+    <div class="form-card">
+      <span class="kicker">Prefer to talk first?</span>
+      <h3>Tell us about your journey</h3>
+      <hr class="dash-rule">
+      <form data-web3forms>
+        <input type="hidden" name="access_key" value="b83c26b2-1735-46e3-ab8d-65b5003cc0a9">
+        <input type="hidden" name="subject" value="New journey enquiry — edgeofthearctic website">
+        <input type="hidden" name="from_name" value="Edge of the Arctic & Beyond website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="form-grid">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="full">
+            <label for="journey">Which journey?</label>
+            <select id="journey" name="journey">
+              <option value="greenland-by-sea">Greenland by Sea &amp; Arctic Iceland (flagship)</option>
+              <option value="north-iceland">North Iceland tour</option>
+              <option value="tailor-made">Tailor-made / private journey</option>
+              <option value="stay">A stay in Hjalteyri</option>
+              <option value="restaurant-group">Group dinner at Eyri Restaurant</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div>
+            <label for="party">Travellers</label>
+            <select id="party" name="travellers">
+              <option>1</option><option selected>2</option><option>3</option><option>4</option>
+              <option>5–8</option><option>9–12</option>
+            </select>
+          </div>
+          <div>
+            <label for="dates">Preferred dates</label>
+            <input type="text" id="dates" name="preferred_dates" placeholder="e.g. Aug 2027, flexible">
+          </div>
+          <div class="full">
+            <label for="message">Anything else we should know?</label>
+            <textarea id="message" name="message" rows="4" placeholder="Interests, pace, occasions, dietary needs…"></textarea>
+          </div>
+          <div class="full">
+            <button type="submit" class="btn btn-dark btn-block">Send My Enquiry</button>
+          </div>
+        </div>
+        <p class="form-note">We only use your details to reply to you. No newsletters unless you ask.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Edge of the Arctic &amp; Beyond</h4>
+        <p>Small-group expeditions to Iceland and Greenland, and a restaurant and guesthouse on the shore of Eyjafjörður — hosted personally by Nik and Sara from Hjalteyri, North Iceland.</p>
+      </div>
+      <div>
+        <h4>Journeys</h4>
+        <ul>
+          <li><a href="/tours/greenland-by-sea.html">Greenland by Sea</a></li>
+          <li><a href="/tours/">All Expeditions &amp; Tours</a></li>
+          <li><a href="/book/">Book Your Journey</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>In North Iceland</h4>
+        <ul>
+          <li><a href="/stay/">Stay With Us</a></li>
+          <li><a href="/dine/">Eyri Restaurant</a></li>
+          <li><a href="/explore/">Explore the Region</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:nik@edgeofthearctic.travel">nik@edgeofthearctic.travel</a></li>
+          <li><a href="tel:+3548629697">+354 862 9697</a></li>
+          <li><a href="/contact/">Contact &amp; FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Edge of the Arctic &amp; Beyond · Hjalteyri, Iceland</span>
+      <span><a href="/about/">About</a> · <a href="/contact/">Contact</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<script>
+  // Pre-select the journey from ?journey= links elsewhere on the site.
+  const j = new URLSearchParams(location.search).get("journey");
+  if (j) {
+    const sel = document.getElementById("journey");
+    if ([...sel.options].some((o) => o.value === j)) sel.value = j;
+  }
+</script>
+</body>
+</html>
