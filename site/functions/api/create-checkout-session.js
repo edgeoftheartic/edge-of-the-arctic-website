@@ -36,7 +36,17 @@ export async function onRequestPost({ request, env }) {
       headers: { "Content-Type": "application/json" },
     });
 
-  if (!env.STRIPE_SECRET_KEY) {
+  // The key may arrive as a plain Worker secret (string) or as a
+  // Secrets Store binding (object with an async .get()).
+  let stripeKey = env.STRIPE_SECRET_KEY;
+  if (stripeKey && typeof stripeKey.get === "function") {
+    try {
+      stripeKey = await stripeKey.get();
+    } catch {
+      stripeKey = null;
+    }
+  }
+  if (!stripeKey) {
     return json({ error: "Stripe is not configured yet" }, 501);
   }
 
@@ -69,7 +79,7 @@ export async function onRequestPost({ request, env }) {
   const res = await fetch("https://api.stripe.com/v1/checkout/sessions", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`,
+      Authorization: `Bearer ${stripeKey}`,
       "Content-Type": "application/x-www-form-urlencoded",
     },
     body: params,
