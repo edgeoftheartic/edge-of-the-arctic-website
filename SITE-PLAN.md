@@ -49,7 +49,7 @@ sell, and what should *I* buy?"
 ## 2. The fix: one brand, three doors, one checkout
 
 ### Positioning
-**"Hosts, not operators."** Nik & Sara live in Hjalteyri, own the restaurant, guide the
+**"Hosts, not operators."** Nik & Sarah live in Hjalteyri, own the restaurant, guide the
 trips. Every page reinforces this single differentiator. The Arctic is the hero;
 Mediterranean trips are explicitly framed as "the Beyond" — a curated sideline, not
 brand confusion.
@@ -90,7 +90,7 @@ Home ─ "What would you like to do?"
 
 **Expedition buyer (affluent North American, the $8,495 target):**
 Home banner or /tours/ → flagship page (itinerary, dates table, inclusions, trust) →
-$1,000 Stripe deposit *or* "talk to Nik & Sara first" enquiry. Deposit is refundable
+$1,000 Stripe deposit *or* "talk to Nik & Sarah first" enquiry. Deposit is refundable
 30 days — lowers commitment anxiety at this price point.
 
 **Iceland tour shopper:** Home → /tours/ → tour card → WeTravel (their proven checkout,

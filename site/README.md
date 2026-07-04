@@ -1,6 +1,6 @@
 # Edge of the Arctic & Beyond — Website
 
-Static site for **edgeofthearctic.travel / Edge of the Arctic & Beyond** (Nik & Sara, Hjalteyri, North Iceland): Iceland & Greenland expeditions, Eyri Restaurant, and the guesthouse.
+Static site for **edgeofthearctic.travel / Edge of the Arctic & Beyond** (Nik & Sarah, Hjalteyri, North Iceland): Iceland & Greenland expeditions, Eyri Restaurant, and the guesthouse.
 
 Built as plain HTML/CSS/JS — no build step — for **Cloudflare Pages**, with **Web3Forms** for enquiries and **Stripe Checkout** (via a Cloudflare Pages Function) for deposits.
 
@@ -14,7 +14,7 @@ site/
 ├── stay/                   Guesthouse in Hjalteyri
 ├── dine/                   Eyri Restaurant
 ├── explore/                Regional guide (from the 2019 brochure)
-├── about/                  Nik & Sara's story
+├── about/                  Nik & Sarah's story
 ├── contact/                Contact + FAQ
 ├── book/                   THE conversion page: deposit buttons + enquiry form
 │   └── thank-you.html      Stripe success page
