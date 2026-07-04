@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!-- ============================================================
+  TOUR PAGE TEMPLATE — Edge of the Arctic & Beyond
+  ============================================================
+  HOW TO ADD A NEW TOUR (10 minutes):
+  1. Copy this file:  cp _template.html my-new-tour.html
+     (the filename becomes the URL: /tours/my-new-tour.html —
+      use lowercase words separated by hyphens)
+  2. Search for [[ and replace every [[PLACEHOLDER]] below.
+  3. Delete itinerary <li> blocks you don't need, or copy more.
+  4. Pick ONE booking style in the BOOKING section near the bottom:
+       A) WeTravel link  – for scheduled group trips
+       B) Stripe deposit – add the product in
+                           functions/api/create-checkout-session.js first
+       C) Enquiry only   – for private/tailor-made journeys
+     Delete the styles you don't use.
+  5. Add a hero/card image to /assets/img/ and update the
+     two image filenames below ([[HERO_IMG]], [[SPLIT_IMG]]).
+  6. Add a card for the tour on /tours/index.html (copy any card),
+     add the page path to SITEMAP_PATHS in worker/index.js,
+     and (optional) add an option to the journey <select> in /book/.
+  7. git add -A && git commit -m "Add tour: ..." && git push
+     — Cloudflare deploys it automatically.
+  ============================================================ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO: title ≈ 60 chars, description ≈ 155 chars, both unique to this tour -->
+  <title>[[TOUR NAME]] — Edge of the Arctic &amp; Beyond</title>
+  <meta name="description" content="[[ONE-SENTENCE SUMMARY OF THE TOUR — appears in Google results]]">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://edgeofthearctic.travel/tours/[[FILENAME]].html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Edge of the Arctic &amp; Beyond">
+  <meta property="og:title" content="[[TOUR NAME]] — Edge of the Arctic &amp; Beyond">
+  <meta property="og:description" content="[[SAME SUMMARY AS THE DESCRIPTION ABOVE]]">
+  <meta property="og:url" content="https://edgeofthearctic.travel/tours/[[FILENAME]].html">
+  <meta property="og:image" content="https://edgeofthearctic.travel/assets/img/[[HERO_IMG]]">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/main.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "[[TOUR NAME]]",
+  "description": "[[SAME SUMMARY]]",
+  "touristType": "Small group",
+  "url": "https://edgeofthearctic.travel/tours/[[FILENAME]].html",
+  "image": "https://edgeofthearctic.travel/assets/img/[[HERO_IMG]]",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Edge of the Arctic & Beyond",
+    "url": "https://edgeofthearctic.travel/",
+    "telephone": "+354 862 9697"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "[[PRICE NUMBER, e.g. 3600 — or delete the whole offers block for price-on-enquiry]]",
+    "priceCurrency": "[[USD or EUR]]",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">Edge of the Arctic<small>&amp; Beyond</small></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a href="/tours/" aria-current="page">Expeditions &amp; Tours</a>
+      <a href="/stay/">Stay</a>
+      <a href="/dine/">Eat</a>
+      <a href="/explore/">Explore the Region</a>
+      <a href="/about/">About Us</a>
+      <a class="btn btn-primary" href="/book/">Book Your Journey</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="--hero-img: url('/assets/img/[[HERO_IMG]]')">
+  <div class="container">
+    <span class="kicker">[[KICKER — e.g. "The Reset Collection · Croatia"]]</span>
+    <h1>[[TOUR NAME]]</h1>
+    <hr class="dash-rule center">
+    <p class="tagline">[[ONE OR TWO EVOCATIVE SENTENCES — the promise of the trip, not a feature list]]</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#book">[[PRIMARY CTA — "Reserve Your Place" / "Plan This Journey"]]</a>
+      <a class="btn btn-outline" href="#itinerary">View the Itinerary</a>
+    </div>
+  </div>
+</section>
+
+<!-- FACT BAR -->
+<section class="section dark">
+  <div class="container">
+    <div class="fact-bar">
+      <div class="fact"><strong>[[X days]]</strong><span>[[e.g. "10 nights, three Croatias"]]</span></div>
+      <div class="fact"><strong>[[12 guests]]</strong><span>[[group size note]]</span></div>
+      <div class="fact"><strong>[[DATES or "Private"]]</strong><span>[[departure note]]</span></div>
+      <div class="fact"><strong>[[$X,XXX or "On request"]]</strong><span>[[what's broadly included]]</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY / OVERVIEW split -->
+<section class="section">
+  <div class="container split">
+    <div>
+      <span class="kicker">[[SECTION KICKER — e.g. "Why this journey"]]</span>
+      <h2>[[OVERVIEW HEADLINE]]</h2>
+      <hr class="dash-rule">
+      <p>[[PARAGRAPH 1 — what makes this trip different]]</p>
+      <p>[[PARAGRAPH 2 — how it feels day to day]]</p>
+      <p>[[PARAGRAPH 3 — the host angle: who leads it, the food, the access]]</p>
+    </div>
+    <div class="img-frame"><img src="/assets/img/[[SPLIT_IMG]]" alt="[[DESCRIBE THE IMAGE]]" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ITINERARY -->
+<section class="section dim" id="itinerary">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Day by day</span>
+      <h2>The Itinerary</h2>
+      <hr class="dash-rule">
+    </div>
+    <ol class="itinerary">
+      <!-- Copy/delete <li> blocks as needed -->
+      <li>
+        <span class="day-label">[[Day 1 · Place]]</span>
+        <h3>[[DAY HEADLINE]]</h3>
+        <p>[[WHAT HAPPENS — 2–3 sentences, name the real places and restaurants]]</p>
+      </li>
+      <li>
+        <span class="day-label">[[Days 2–3 · Place]]</span>
+        <h3>[[DAY HEADLINE]]</h3>
+        <p>[[WHAT HAPPENS]]</p>
+      </li>
+      <li>
+        <span class="day-label">[[Day X · Place]]</span>
+        <h3>[[DAY HEADLINE]]</h3>
+        <p>[[WHAT HAPPENS]]</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- INCLUDED + BOOKING -->
+<section class="section" id="book">
+  <div class="container split" style="align-items:start">
+    <div>
+      <span class="kicker">What's included</span>
+      <h2>[[INCLUSIONS HEADLINE]]</h2>
+      <hr class="dash-rule">
+      <ul style="list-style:none">
+        <li>✓ &nbsp;[[INCLUSION 1]]</li>
+        <li>✓ &nbsp;[[INCLUSION 2]]</li>
+        <li>✓ &nbsp;[[INCLUSION 3 — copy more lines as needed]]</li>
+      </ul>
+      <p class="form-note">Not included: [[EXCLUSIONS — flights, insurance, alcohol…]]</p>
+    </div>
+    <div>
+      <div class="form-card">
+        <span class="kicker">[[BOOKING KICKER]]</span>
+        <h3>[[BOOKING HEADLINE]]</h3>
+        <hr class="dash-rule">
+        <p style="font-size:.95rem">[[ONE REASSURING SENTENCE — deposit terms / reply time]]</p>
+
+        <!-- ===== BOOKING STYLE A: WeTravel (scheduled group trips) =====
+        <p style="margin:18px 0 8px"><a class="btn btn-primary btn-block" href="[[WETRAVEL TRIP URL]]" target="_blank" rel="noopener">Dates, Prices &amp; Booking</a></p>
+        -->
+
+        <!-- ===== BOOKING STYLE B: Stripe deposit (add product in functions/api/create-checkout-session.js first) =====
+        <p style="margin:18px 0 8px"><button class="btn btn-primary btn-block" data-checkout="[[PRODUCT-KEY]]" data-departure="[[DEPARTURE-TAG]]">Reserve with a Deposit</button></p>
+        -->
+
+        <!-- ===== BOOKING STYLE C: Enquiry only (private / tailor-made) ===== -->
+        <p style="margin:18px 0 8px"><a class="btn btn-primary btn-block" href="/book/?journey=[[JOURNEY-KEY]]">Start Planning This Journey</a></p>
+
+        <p style="margin-top:14px"><a class="btn btn-outline btn-block" href="/contact/">Questions first? Contact us</a></p>
+        <p class="form-note">Every enquiry is answered personally by Nik or Sarah within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING BAND -->
+<section class="section dark">
+  <div class="container section-head center">
+    <span class="kicker">[[CLOSING KICKER]]</span>
+    <h2>[[CLOSING LINE — one sentence that sells the feeling]]</h2>
+    <hr class="dash-rule center">
+    <p style="margin-top:24px"><a class="btn btn-primary" href="#book">[[PRIMARY CTA AGAIN]]</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Edge of the Arctic &amp; Beyond</h4>
+        <p>Small-group expeditions to Iceland and Greenland, and a restaurant and guesthouse on the shore of Eyjafjörður — hosted personally by Nik and Sarah from Hjalteyri, North Iceland.</p>
+      </div>
+      <div>
+        <h4>Journeys</h4>
+        <ul>
+          <li><a href="/tours/greenland-by-sea.html">Greenland by Sea</a></li>
+          <li><a href="/tours/">All Expeditions &amp; Tours</a></li>
+          <li><a href="/book/">Book Your Journey</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>In North Iceland</h4>
+        <ul>
+          <li><a href="/stay/">Stay With Us</a></li>
+          <li><a href="/dine/">Eyri Restaurant</a></li>
+          <li><a href="/explore/">Explore the Region</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:nik@edgeofthearctic.travel">nik@edgeofthearctic.travel</a></li>
+          <li><a href="tel:+3548629697">+354 862 9697</a></li>
+          <li><a href="/contact/">Contact &amp; FAQ</a></li>
+          <li>Hjalteyrarvegur 11, 604 Hjalteyri</li>
+          <li><a href="https://www.facebook.com/EdgeoftheArcticBeyond" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/edgeofthearcticandbeyond/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Edge of the Arctic &amp; Beyond · Langanes Ferðamannaþjónusta · Hjalteyri, Iceland</span>
+      <span><a href="/about/">About</a> · <a href="/contact/">Contact</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

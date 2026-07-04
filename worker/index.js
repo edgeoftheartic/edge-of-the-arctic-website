@@ -18,6 +18,7 @@ const SITEMAP_PATHS = [
   "/",
   "/tours/",
   "/tours/greenland-by-sea.html",
+  "/tours/reset-croatia.html",
   "/stay/",
   "/dine/",
   "/explore/",

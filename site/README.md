@@ -76,6 +76,15 @@ Photo slots in `assets/img/` (referenced but not included — export from the ol
 
 Pages render fine before images are added (slots show a deep-blue gradient).
 
+## Adding a new tour page
+
+Copy `tours/_template.html` to `tours/<new-tour-name>.html` and follow the
+step-by-step instructions in the comment at the top of the file (replace the
+`[[PLACEHOLDERS]]`, pick a booking style, add a card to `/tours/`, add the
+path to `SITEMAP_PATHS` in `worker/index.js`, push). The template ships with
+SEO tags and TouristTrip structured data built in and is excluded from the
+deployed site by `.assetsignore`.
+
 ## Editing content
 
 Everything is plain HTML — open the page, edit the text, redeploy. Shared look & feel lives in `assets/css/main.css`; shared behaviour (mobile nav, forms, Stripe buttons) in `assets/js/main.js`.
