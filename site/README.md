@@ -28,12 +28,21 @@ Everything hangs off one Gmail address (the project email) so the whole stack ca
 handed to Nik in one go: **Gmail → GitHub → Cloudflare → Web3Forms** (+ Stripe when
 created). Handover = transfer the Gmail password + 2FA.
 
-## Deploy to Cloudflare Pages
+## Deploy to Cloudflare (Workers Git integration)
 
-1. Push this repo to the project GitHub account (repo is initialised locally — see root).
-2. Cloudflare dashboard (project account) → **Workers & Pages → Create → Pages → Connect to Git** → pick the repo.
-3. Build settings: **no framework, no build command**, root directory = `site`, output directory = `/`.
-4. Add the custom domain (e.g. `edgeofthearctic.travel`) under **Custom domains**.
+The repo root carries `wrangler.jsonc` + `worker/index.js`, so Cloudflare's Git flow
+deploys it with the defaults:
+
+1. Cloudflare dashboard → **Workers & Pages → Create → Connect to Git** → pick
+   `edgeoftheartic/edge-of-the-arctic-website`.
+2. **Build command: leave blank. Deploy command: `npx wrangler deploy` (the default).**
+3. Every push to `main` redeploys automatically.
+4. Custom domain: the Worker → **Settings → Domains & Routes → Add → Custom domain**
+   (e.g. `edgeofthearctic.travel`).
+
+The static site is served from `site/` (Workers assets); `/api/create-checkout-session`
+is handled by `worker/index.js`, which reuses the Pages-style function in
+`site/functions/` — `site/.assetsignore` keeps that server code out of the public assets.
 
 The `functions/` directory is picked up automatically by Pages — `/api/create-checkout-session` becomes live on deploy.
 
@@ -46,7 +55,8 @@ Gmail). No server needed. To change the destination later, log in at web3forms.c
 ## Stripe setup (deposits & payments)
 
 1. Create a Stripe account → get the **secret key** (`sk_live_…`; use `sk_test_…` first).
-2. Cloudflare Pages project → **Settings → Environment variables** → add `STRIPE_SECRET_KEY`.
+2. Cloudflare dashboard → the Worker → **Settings → Variables and Secrets** → add
+   `STRIPE_SECRET_KEY` as a **Secret**.
 3. Products & amounts are defined in `functions/api/create-checkout-session.js` (`PRODUCTS` map) — edit there to add tours or change deposit amounts.
 4. Until the key is set, deposit buttons gracefully fall back to the enquiry form, so the site works day one without Stripe.
 

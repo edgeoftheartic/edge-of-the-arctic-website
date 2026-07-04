@@ -1,0 +1,12 @@
+{
+  // Cloudflare Workers config — makes the default "npx wrangler deploy"
+  // in Cloudflare's Git integration deploy this repo with zero build step:
+  // static site from ./site + the Stripe checkout endpoint as the Worker.
+  "name": "edge-of-the-arctic-website",
+  "compatibility_date": "2026-07-01",
+  "main": "worker/index.js",
+  "assets": {
+    "directory": "./site",
+    "binding": "ASSETS"
+  }
+}
