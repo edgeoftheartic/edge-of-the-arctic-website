@@ -103,6 +103,17 @@ a { color: var(--arctic); }
   text-decoration: none;
   white-space: nowrap;
 }
+.brand-logo {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+}
+.brand-logo img { height: 44px; width: auto; display: block; }
+@media (max-width: 860px) {
+  .brand-logo img { height: 36px; }
+}
 .brand small {
   display: block;
   font-family: var(--font-body);
