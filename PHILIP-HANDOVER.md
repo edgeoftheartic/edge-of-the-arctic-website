@@ -1,5 +1,8 @@
 # New website — technical handover & FAQ
-*For Philip · 5 July 2026 · answers to your questions, plus a content gap list*
+*For Philip · updated 5 July 2026 · answers to your questions + current status*
+
+Live preview (blocked from Google until launch):
+**https://edge-of-the-arctic-website.edgeoftheartic.workers.dev**
 
 ## What the new site is built with
 
@@ -14,118 +17,115 @@ entire stack:
 | Hosting + CDN + SSL | Cloudflare Workers (static assets) | **$0** (free tier: 100k requests/day — far above this site's needs) |
 | Code & change history | GitHub repo `edgeoftheartic/edge-of-the-arctic-website` | $0 |
 | Enquiry forms | Web3Forms (posts go straight to email) | $0 (free tier) |
-| Deposits/payments | Stripe (flagship deposits) + WeTravel (group trips) | $0 fixed — per-transaction fees only, same as today |
-| Domain | stays registered wherever it is now (GoDaddy) — only the **nameservers** change to Cloudflare | unchanged |
+| Payments | WeTravel (group trips) + Stripe (optional, see below) | $0 fixed — per-transaction fees only, same as today |
+| Domain | stays registered at GoDaddy — only the **nameservers** change to Cloudflare | unchanged |
 
-So versus the current WordPress/GoDaddy setup the recurring cost drops to
-essentially **zero**, and — just as important — there is nothing to maintain:
-no WP core/plugin/theme updates, no security patching (the current site runs
-outdated WordPress), no hosting renewals.
+Versus the current WordPress/GoDaddy setup the recurring cost drops to
+essentially **zero**, and there is nothing to maintain: no WP core/plugin/theme
+updates, no security patching, no hosting renewals.
 
 ## "In which program do I work on the website?"
 
 There is no admin panel — the website **is** the files in the GitHub repo.
-Three ways to edit, pick whichever suits:
+Three ways to edit:
 
-1. **GitHub's web editor (easiest):** open the repo on github.com, press `.`
-   (or Edit on any file), change the text, commit. **Every commit to `main`
-   auto-deploys to Cloudflare in about a minute.** Nothing else to do.
-2. **Any code editor locally** (VS Code etc.): clone the repo, edit, push.
-3. **AI-assisted:** the repo is clean, commented and small — tools like
-   Claude Code / Cursor handle "add a menu item on every page" in one prompt.
+1. **GitHub's web editor (easiest):** open the repo on github.com and press
+   `.` — a full editor (github.dev) opens in the browser. Change the text,
+   commit. **Every commit to `main` auto-deploys to Cloudflare in ~1 minute.**
+2. **Any code editor locally** (VS Code etc.): clone, edit, push.
+3. **AI-assisted:** the repo is small, clean and commented — tools like
+   Claude Code handle "add a menu item on every page" in one prompt.
 
-Concrete examples:
-- **Change text:** edit the HTML file for that page (`site/dine/index.html` etc.).
-- **Add a menu item:** it's the same `<nav>` block at the top of each page —
-  a find-and-replace across ~12 files (or one AI prompt).
-- **Add a new tour:** copy `site/tours/_template.html`, follow the numbered
-  instructions in its header comment (10 minutes; SEO tags and structured
-  data are built in).
-- **Change a price/date:** edit the tour card in `site/tours/index.html` and
-  the tour page. WeTravel remains the source of truth for checkout prices.
+Routine tasks are template-driven — copy a file, fill in the marked blanks:
+- **New tour page:** copy `site/tours/_template.html` (numbered instructions
+  in its header comment; SEO tags + structured data built in). ~10 minutes.
+- **New blog post:** copy `site/journal/_template.html`. ~5 minutes.
+- **Change text/price/date:** edit the page's HTML file directly.
+- **Menu change:** the same `<nav>` block sits at the top of each page —
+  find-and-replace across the files (or one AI prompt).
 
-Cloudflare is **not** where you edit — it only hosts and auto-deploys what's
-in GitHub. You never need to touch the Cloudflare dashboard for content.
+Cloudflare is **not** where you edit — it only hosts and auto-deploys
+whatever is in GitHub. You never touch the Cloudflare dashboard for content.
 
 ## "Can WeTravel integrate as seamlessly as FareHarbor?"
 
-Close to it, yes — three levels, all already supported by the site:
+First, to clear up a confusion on our side: **FareHarbor isn't used anywhere
+on the current sites** — we checked; the old site is 100% WeTravel (161
+references, 13 embedded checkouts). So this is purely about making WeTravel
+feel FareHarbor-smooth, and the answer is yes, in stages:
 
-1. **Now (live):** "Dates & Booking" buttons deep-link to the WeTravel trip
-   page. Two clicks from homepage to checkout, all links verified working
-   (the old site had 9 dead ones).
-2. **Seamless (small upgrade):** WeTravel's **embedded checkout**
-   (`checkout_embed` — the old site already had these URLs) opens the payment
-   flow in a modal so guests never appear to leave the site. FareHarbor-like
-   experience, ~an afternoon of work to wire into the existing buttons.
-3. **Fully in-house (Stripe):** already live for the flagship expedition
-   deposits. WeTravel stays for scheduled group trips because it does payment
-   plans, balance collection and manifests — things Stripe alone doesn't.
+1. **Now (live):** booking buttons deep-link to WeTravel trip pages. Two
+   clicks from homepage to checkout, every link verified working (the old
+   site has 9 dead ones).
+2. **Seamless (small upgrade, ~an afternoon):** WeTravel's **embedded
+   checkout** (`checkout_embed` — the old site already used these URLs) opens
+   payment in a modal so guests never appear to leave the site.
+3. **Stripe (optional):** currently wired for the flagship expedition's
+   $1,000 deposits only, because the 2027 Greenland departures don't exist in
+   WeTravel yet. If/when Nik creates them as WeTravel trips (recommended —
+   payment plans help sell an $8,495 product), the deposit buttons become
+   WeTravel links (two-line edit) and Stripe sits dormant. It costs nothing
+   while unused and remains handy for bespoke invoices or vouchers. End
+   state can simply be: **"all tour payments through WeTravel."**
 
 ## "What are the steps? Is Nik setting everything up?"
 
-Setup is **done** — the site is live on a temporary URL:
-https://edge-of-the-arctic-website.edgeoftheartic.workers.dev
-(deliberately blocked from Google until launch). Remaining steps:
+Setup is **done** — hosting, deploys, forms, payments, SEO plumbing all work
+on the preview URL. Remaining before launch:
 
-1. **Content review** — this is where your knowledge is most valuable (see gap
-   list below: your destination guides and blog posts are worth migrating).
-2. Replace two placeholder photos (guesthouse room, Nik & Sarah portrait) and
-   confirm guesthouse details + flagship terms.
-3. Stripe: finish business verification, swap test key → live key (one
-   dashboard field).
-4. **Launch:** point the domain's nameservers to Cloudflare and attach the
-   domain to the Worker (minutes; the old site keeps running until that
-   moment, and robots/sitemap flip automatically).
-5. 301-redirect map from old URLs → new pages (Cloudflare Bulk Redirects) so
+1. **Content review** — read the site, correct facts, improve copy. This is
+   where your knowledge matters most (see "still to migrate" below).
+2. **Two placeholder photos** — a real guesthouse room and a Nik & Sarah
+   portrait (`site/assets/img/guesthouse.jpg`, `nik-sara.jpg`).
+3. **FAQ answers** — 28 questions are with Sarah & Nik (`FAQ-QUESTIONS.md`);
+   answers get plugged into the contact page with FAQ rich-result markup.
+4. **Confirm** guesthouse details (/stay/) and flagship terms.
+5. **Stripe (optional):** finish verification and swap test → live key, or
+   decide to run everything through WeTravel instead.
+6. **Launch:** point the domain's nameservers to Cloudflare, attach the
+   domain to the Worker (minutes; old site runs until that moment; the
+   robots.txt/sitemap flip to "index me" automatically on the real domain).
+7. **301 redirects** old URLs → new pages (Cloudflare Bulk Redirects) so
    existing Google rankings transfer.
 
-## What the old site has that the new one doesn't (yet)
+## Current site inventory (26 indexed pages)
 
-The new site deliberately launched focused (clear journeys, working booking,
-flagship). Worth migrating from your work on the old site, roughly in order
-of value:
+- Home · Tours index · **Greenland by Sea flagship** · **Reset Croatia**
+- **Destinations:** index + Iceland, Greenland, Faroe Islands, Croatia,
+  Slovenia, Bosnia, Greece, Bulgaria — each linked to its correct live
+  products (12 WeTravel trips catalogued + 2 on-site journeys)
+- **Journal:** index + all 6 blog posts migrated from the old site (edited,
+  with related-journey CTAs replacing the old broken internal links)
+- Stay · Eat (Eyri) · North Iceland regional guide (/explore/) · About ·
+  Contact & FAQ · Book (the single conversion page)
+- Guest **testimonials** from the old homepage: 3 on home, 1 on the
+  flagship, 1 on the Iceland destination page
+- Company **globe logo** in the header (extracted from the brochure)
+- Every page: unique title/description, canonical, Open Graph share cards,
+  and schema.org markup (TravelAgency, Restaurant, FAQPage, TouristTrip,
+  TouristDestination, Article)
 
-1. **Destination guide pages** — Discover Iceland / Greenland / Faroe Islands
-   / Croatia / Slovenia / Bosnia / Greece / Bulgaria. Good SEO content; on the
-   new site these would become guide pages in the /explore/ pattern (and this
-   time each one linked to the *right* products — on the old site the
-   Greenland, Greece and Bulgaria pages sell the wrong country's trip).
-2. **Blog (6 posts)** — fly-fishing Greenland, Greece local tours, hidden
-   Bulgaria, Inuit culture, truffle hunting, spring in Iceland. Straight
-   migration into a /journal/ section.
-3. **Niche landing pages** — Women-only adventures, LGBTQ-friendly travel,
+## Still worth migrating from the old site
+
+1. **Niche landing pages** — Women-only adventures, LGBTQ-friendly travel,
    Off-road/Land Rover highlands, Food & Wine tours, Tailor-made. Each maps
-   cleanly onto the tour-page template.
-4. **Tours not yet carded on the new site** — Northern Lights Escapes 4d/3n
-   (£1,180 ex-UK package), Nov 7–13 2026 Northern Lights departure (own card),
-   Easter Break Croatian Wine (Mar 2027), Heaven on Earth Croatia & Slovenia
-   (Apr 2027), Savor the Adriatic women-only (Apr 2027), 7-day Bosnia-only
-   option, Croatia Reset 1.0 ($3,600 scheduled version alongside the premium
-   private one).
-5. **Testimonials** — the old site has guest quotes; the new site has none
-   yet. A short reviews strip on the homepage + tour pages would help the
-   $8k flagship in particular.
-6. **How We Travel / Responsible Travel policy** — partially covered on the
-   new About page; the full policy text is worth keeping.
-7. **Legal pages** — privacy policy & terms. The old privacy page has
-   template placeholder text ("legal entity code 000000000") so it needs
-   rewriting, not copying.
-8. **Trust badge** — the Ferðamálastofa "Authorized Day Tour Provider
-   2026-048" badge (already extracted from the site media, ready to add to
-   the footer).
-
-What the new site has that the old one doesn't: verified booking links
-(9 were dead), real FAQ answers (old ones are Lorem Ipsum), the flagship
-Greenland expedition with online deposits, restaurant + guesthouse + region
-sections, structured data (TravelAgency/Restaurant/FAQ/TouristTrip), Open
-Graph share cards, correct product-to-destination mapping, a street address,
-and per-tour SEO pages generated from a template.
+   onto the tour-page template; the women-only page can link the live
+   "Savor the Adriatic" departure.
+2. **How We Travel / Responsible Travel policy** — partially covered on
+   About; the full policy text is worth keeping as its own page.
+3. **Legal pages** — privacy policy & terms. Note: the old privacy page
+   contains template placeholder text ("legal entity code 000000000"), so it
+   needs rewriting, not copying.
+4. **Ferðamálastofa licence badge** (Authorized Day Tour Provider 2026-048)
+   — image already extracted, ready to add to the footer.
+5. **A few tour cards** on /tours/ for trips currently only linked from
+   destination pages (Northern Lights Escapes, winter-season departures,
+   Easter Croatia, Savor the Adriatic, Heaven on Earth).
 
 ## Working together
 
 The repo is the single source of truth — nothing is locked to one person.
 The most useful division right now: content and destination knowledge
-(Philip) flowing into the template-driven pages, with the structure, booking
-and SEO plumbing already in place. Access is a GitHub collaborator invite
-away.
+(Philip) flowing into the template-driven pages, with structure, booking and
+SEO plumbing already in place. Access is a GitHub collaborator invite away
+(from the edgeoftheartic account).
