@@ -25,6 +25,22 @@ const SITEMAP_PATHS = [
   "/about/",
   "/contact/",
   "/book/",
+  "/destinations/",
+  "/destinations/iceland.html",
+  "/destinations/greenland.html",
+  "/destinations/faroe-islands.html",
+  "/destinations/croatia.html",
+  "/destinations/slovenia.html",
+  "/destinations/bosnia.html",
+  "/destinations/greece.html",
+  "/destinations/bulgaria.html",
+  "/journal/",
+  "/journal/fly-fishing-arctic-char-greenland.html",
+  "/journal/greece-local-tours.html",
+  "/journal/hidden-gems-of-bulgaria.html",
+  "/journal/greenland-inuit-culture.html",
+  "/journal/truffle-hunting-croatia.html",
+  "/journal/spring-in-iceland.html",
 ];
 
 export default {

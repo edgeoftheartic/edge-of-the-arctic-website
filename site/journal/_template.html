@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- ============================================================
+  JOURNAL POST TEMPLATE — how to publish a post (5 minutes):
+  1. Copy this file:  cp _template.html my-post-title.html
+  2. Replace every [[PLACEHOLDER]] (search for "[[").
+  3. Add a photo to /assets/img/ and set the [[IMAGE]] filename (3 places).
+  4. Add a card for the post on /journal/index.html (copy any card there).
+  5. Add "/journal/my-post-title.html" to SITEMAP_PATHS in worker/index.js.
+  6. Commit & push — the site deploys itself.
+  Tip: edit entirely in the browser at github.dev — press "." on the repo.
+  ============================================================ -->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[[POST TITLE]] | Edge of the Arctic &amp; Beyond</title>
+  <meta name="description" content="[[ONE-SENTENCE SUMMARY — shows in Google and share cards]]">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://edgeofthearctic.travel/journal/[[FILENAME]].html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Edge of the Arctic &amp; Beyond">
+  <meta property="og:title" content="[[POST TITLE]]">
+  <meta property="og:description" content="[[ONE-SENTENCE SUMMARY — shows in Google and share cards]]">
+  <meta property="og:url" content="https://edgeofthearctic.travel/journal/[[FILENAME]].html">
+  <meta property="og:image" content="https://edgeofthearctic.travel/assets/img/[[IMAGE — add to /assets/img/, e.g. journal-mytopic.jpg]]">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/main.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[[POST TITLE]]",
+  "description": "[[ONE-SENTENCE SUMMARY — shows in Google and share cards]]",
+  "image": "https://edgeofthearctic.travel/assets/img/[[IMAGE — add to /assets/img/, e.g. journal-mytopic.jpg]]",
+  "datePublished": "[[YYYY-MM-DD]]",
+  "author": {
+    "@type": "Organization",
+    "name": "Edge of the Arctic & Beyond"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Edge of the Arctic & Beyond",
+    "url": "https://edgeofthearctic.travel"
+  },
+  "mainEntityOfPage": "https://edgeofthearctic.travel/journal/[[FILENAME]].html"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand brand-logo" href="/" aria-label="Edge of the Arctic & Beyond — home"><img src="/assets/img/logo.png" alt="Edge of the Arctic & Beyond"></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a href="/tours/">Expeditions &amp; Tours</a>
+      <a href="/destinations/">Destinations</a>
+      <a href="/stay/">Stay</a>
+      <a href="/dine/">Eat</a>
+      <a href="/about/">About Us</a>
+      <a class="btn btn-primary" href="/book/">Book Your Journey</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding:80px 0 60px; --hero-img: url('/assets/img/[[IMAGE — add to /assets/img/, e.g. journal-mytopic.jpg]]')">
+  <div class="container">
+    <span class="kicker">The Journal &middot; [[20 February 2026 — display date]]</span>
+    <h1>[[POST TITLE]]</h1>
+    <hr class="dash-rule center">
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <article class="journal-body">
+      <p>[[OPENING PARAGRAPH — the hook. Write like you talk.]]</p>
+      <h2>[[SECTION HEADING]]</h2>
+      <p>[[PARAGRAPH]]</p>
+      <ul class="journal-list">
+        <li>[[BULLET — copy this line for more]]</li>
+      </ul>
+      <h2>[[ANOTHER SECTION]]</h2>
+      <p>[[PARAGRAPH — copy heading+paragraph blocks as needed]]</p>
+    </article>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container section-head center">
+    <span class="kicker">Make it real</span>
+    <h2>Journeys behind this story</h2>
+    <hr class="dash-rule center">
+    <p style="margin-top:20px"><a class="btn btn-primary" href="https://www.wetravel.com/trips/vibrant-iceland-in-spring-may-2026-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-70977448" target=_blank rel=noopener style="margin:6px 6px 0 0">Vibrant Iceland in Spring — May 2027</a> <a class="btn btn-primary" href="/destinations/iceland.html" style="margin:6px 6px 0 0">Iceland journeys</a></p>
+    <p style="margin-top:18px"><a href="/journal/">← Back to the Journal</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Edge of the Arctic &amp; Beyond</h4>
+        <p>Small-group expeditions to Iceland and Greenland, and a restaurant and guesthouse on the shore of Eyjafjörður — hosted personally by Nik and Sarah from Hjalteyri, North Iceland.</p>
+      </div>
+      <div>
+        <h4>Journeys</h4>
+        <ul>
+          <li><a href="/tours/greenland-by-sea.html">Greenland by Sea</a></li>
+          <li><a href="/tours/">All Expeditions &amp; Tours</a></li>
+          <li><a href="/destinations/">Destinations</a></li>
+          <li><a href="/book/">Book Your Journey</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>In North Iceland</h4>
+        <ul>
+          <li><a href="/stay/">Stay With Us</a></li>
+          <li><a href="/dine/">Eyri Restaurant</a></li>
+          <li><a href="/explore/">Explore the Region</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:nik@edgeofthearctic.travel">nik@edgeofthearctic.travel</a></li>
+          <li><a href="tel:+3548629697">+354 862 9697</a></li>
+          <li><a href="/contact/">Contact &amp; FAQ</a></li>
+          <li>Hjalteyrarvegur 11, 604 Hjalteyri</li>
+          <li><a href="https://www.facebook.com/EdgeoftheArcticBeyond" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/edgeofthearcticandbeyond/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Edge of the Arctic &amp; Beyond · Langanes Ferðamannaþjónusta · Hjalteyri, Iceland</span>
+      <span><a href="/about/">About</a> · <a href="/contact/">Contact</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

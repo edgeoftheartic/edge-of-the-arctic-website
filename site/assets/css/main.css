@@ -406,3 +406,34 @@ input:focus, select:focus, textarea:focus {
   .nav-toggle { display: block; }
   .form-grid { grid-template-columns: 1fr; }
 }
+
+/* ============ journal / articles ============ */
+.journal-body { max-width: 720px; margin: 0 auto; }
+.journal-body h2 { margin: 34px 0 12px; font-size: 1.5rem; }
+.journal-body p { margin-bottom: 1em; }
+.journal-list { margin: 0 0 1em 1.2em; }
+.journal-list li { margin-bottom: 8px; }
+.pull-quote {
+  border-left: 4px solid var(--amber);
+  margin: 30px 0 10px;
+  padding: 10px 0 10px 22px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+.pull-quote cite { display: block; margin-top: 8px; font-family: var(--font-body); font-size: 0.85rem; font-style: normal; color: var(--stone); }
+
+/* ============ testimonials ============ */
+.quote-grid { display: grid; gap: 26px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.quote-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  position: relative;
+}
+.quote-card::before { content: "\201C"; font-family: var(--font-display); font-size: 3rem; color: var(--amber); line-height: 1; display: block; margin-bottom: 6px; }
+.quote-card p { font-size: 0.97rem; color: #3a4148; }
+.quote-card cite { display: block; margin-top: 14px; font-weight: 700; font-style: normal; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--stone); }
+.section.dark .quote-card { background: rgba(255,255,255,0.06); }
+.section.dark .quote-card p { color: rgba(255,255,255,0.9); }
+.section.dark .quote-card cite { color: var(--amber); }

@@ -76,6 +76,18 @@ Photo slots in `assets/img/` (referenced but not included — export from the ol
 
 Pages render fine before images are added (slots show a deep-blue gradient).
 
+## Adding a journal (blog) post
+
+Copy `journal/_template.html`, follow the numbered comment at the top
+(5 minutes, entirely doable in the browser via github.dev — press `.` on the
+repo). Add a card on `/journal/index.html` and the path to `SITEMAP_PATHS`.
+
+## Destination pages
+
+Each destination lives at `destinations/<name>.html` with its journeys linked
+to live WeTravel/tour pages. To update prices/dates, edit the card on the
+destination page AND on `/tours/index.html`.
+
 ## Adding a new tour page
 
 Copy `tours/_template.html` to `tours/<new-tour-name>.html` and follow the
