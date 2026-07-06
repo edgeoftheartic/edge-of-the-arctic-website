@@ -92,3 +92,18 @@ document.querySelectorAll("[data-tour-filter]").forEach((btn) => {
     if (empty) empty.hidden = shown > 0;
   });
 });
+
+// Deep-link into a filtered catalogue: /tours/?f=northern-lights applies that
+// filter on load (used by the homepage quick-links).
+(() => {
+  const filterButtons = document.querySelectorAll("[data-tour-filter]");
+  if (!filterButtons.length) return;
+  const f = new URLSearchParams(location.search).get("f");
+  if (!f) return;
+  const target = document.querySelector(`[data-tour-filter="${CSS.escape(f)}"]`);
+  if (target) {
+    target.click();
+    const grid = document.getElementById("catalogue");
+    if (grid) grid.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+})();

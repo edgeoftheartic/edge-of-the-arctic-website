@@ -170,7 +170,7 @@ a { color: var(--arctic); }
   color: var(--white);
   background: linear-gradient(rgba(8, 28, 43, 0.55), rgba(8, 28, 43, 0.75)),
     var(--hero-img, linear-gradient(160deg, #0e2a3d, #081c2b)) center/cover no-repeat;
-  padding: 110px 0 90px;
+  padding: 86px 0 66px;
   text-align: center;
 }
 .hero .tagline {
@@ -516,3 +516,23 @@ section[id] { scroll-margin-top: 84px; }
 /* ============ talk-to-us row (WhatsApp / call) ============ */
 .talk-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
 .talk-row .btn { display: inline-flex; align-items: center; }
+
+/* ============ hero quick-links ============ */
+.hero-quicklinks {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+.hero-quicklinks span { color: rgba(255,255,255,0.7); font-weight: 600; letter-spacing: 0.04em; }
+.hero-quicklinks a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  padding-bottom: 2px;
+  border-bottom: 2px solid rgba(240,160,30,0.5);
+}
+.hero-quicklinks a:hover { border-bottom-color: var(--amber); color: var(--amber); }
