@@ -437,3 +437,6 @@ input:focus, select:focus, textarea:focus {
 .section.dark .quote-card { background: rgba(255,255,255,0.06); }
 .section.dark .quote-card p { color: rgba(255,255,255,0.9); }
 .section.dark .quote-card cite { color: var(--amber); }
+
+/* ============ licence badge ============ */
+.licence-badge { width: 92px; height: auto; border-radius: 8px; margin-top: 16px; opacity: 0.95; }

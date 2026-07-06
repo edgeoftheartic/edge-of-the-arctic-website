@@ -41,6 +41,15 @@ const SITEMAP_PATHS = [
   "/journal/greenland-inuit-culture.html",
   "/journal/truffle-hunting-croatia.html",
   "/journal/spring-in-iceland.html",
+  "/how-we-travel/",
+  "/ways-to-travel/",
+  "/ways-to-travel/women-only.html",
+  "/ways-to-travel/food-and-wine.html",
+  "/ways-to-travel/private-and-tailor-made.html",
+  "/ways-to-travel/off-road-and-highlands.html",
+  "/ways-to-travel/lgbtq-friendly.html",
+  "/privacy/",
+  "/terms/",
 ];
 
 export default {
