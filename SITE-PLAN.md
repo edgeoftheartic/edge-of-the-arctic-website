@@ -147,6 +147,12 @@ handing over that one Gmail account (password + 2FA + recovery settings).
       eyrirestaurant.is, the .travel media library, and Nik's Greenland shots
 - [ ] Deploy to Cloudflare Pages (steps in site/README.md)
 
+**Content migration status (updated 6 Jul 2026):** Content migration complete —
+destinations, journal, testimonials, Ways-to-Travel pages, How We Travel,
+legal pages and licence badge are all live. Remaining before launch: two
+placeholder photos (guesthouse room, Nik & Sarah portrait), FAQ answers
+(FAQ-QUESTIONS.md), and the terms deposit/cancellation specifics.
+
 **Domain decision (recommendation)**
 Point **edgeofthearctic.travel** at the new site (it's the company's established domain,
 in WeTravel, business cards, etc.). The **.is** domain belongs to the Norðurhjari

@@ -105,22 +105,29 @@ on the preview URL. Remaining before launch:
   and schema.org markup (TravelAgency, Restaurant, FAQPage, TouristTrip,
   TouristDestination, Article)
 
-## Still worth migrating from the old site
+## Migrated from the old site (July 2026)
 
-1. **Niche landing pages** — Women-only adventures, LGBTQ-friendly travel,
-   Off-road/Land Rover highlands, Food & Wine tours, Tailor-made. Each maps
-   onto the tour-page template; the women-only page can link the live
-   "Savor the Adriatic" departure.
-2. **How We Travel / Responsible Travel policy** — partially covered on
-   About; the full policy text is worth keeping as its own page.
-3. **Legal pages** — privacy policy & terms. Note: the old privacy page
-   contains template placeholder text ("legal entity code 000000000"), so it
-   needs rewriting, not copying.
-4. **Ferðamálastofa licence badge** (Authorized Day Tour Provider 2026-048)
-   — image already extracted, ready to add to the footer.
-5. **A few tour cards** on /tours/ for trips currently only linked from
-   destination pages (Northern Lights Escapes, winter-season departures,
-   Easter Croatia, Savor the Adriatic, Heaven on Earth).
+All the substantial content from edgeofthearctic.travel is now on the new site:
+
+- **Ways to Travel** hub + 5 pages: Women-Only Adventures (linked to the live
+  Savor the Adriatic departure), Food & Wine, Private & Tailor-Made,
+  Off-Road & Highlands, LGBTQ+ Friendly Travel.
+- **How We Travel** — the full Responsible Travel Policy and origin story.
+- **Journal** — all 6 blog posts.
+- **Destinations** — 8 country pages, each linked to correct live products.
+- **Legal** — Privacy Policy (GDPR) and Terms & Booking Conditions, written
+  from the real company/licence facts.
+- **Ferðamálastofa licence badge** in every footer.
+
+## Two small things left for Nik/Sarah on the migrated content
+
+1. **Confirm booking specifics** in `/terms/` — the exact deposit/balance
+   timeline and the cancellation-refund schedule are flagged with
+   "[Nik to confirm...]" notes, because those numbers should come from you,
+   not be guessed. (Each WeTravel trip page carries its own policy meanwhile.)
+2. **Company registration number** — if Langanes Ferðamannaþjónusta has a
+   kennitala / registration number you want shown on the legal pages, send it
+   and we'll add it.
 
 ## Working together
 
