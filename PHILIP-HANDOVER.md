@@ -1,222 +1,213 @@
-# New website — handover & getting-started guide
+# Website handover & getting-started guide
 *For Philip · updated 6 July 2026*
 
-Live preview (blocked from Google until launch):
-**https://edge-of-the-arctic-website.edgeoftheartic.workers.dev**
+## The short version
+
+There are now **two websites**, deliberately split so each does one job well and
+they feed traffic to each other:
+
+| Site | What it's for | GitHub repo | Live preview (pre-launch) |
+|---|---|---|---|
+| **edgeofthearctic.travel** | Tours & expeditions (Iceland, Greenland & beyond) | `edge-of-the-arctic-website` | `edge-of-the-arctic-website.edgeoftheartic.workers.dev` |
+| **edgeofthearctic.is** | Local hub: Eyri Restaurant, the guesthouse, North Iceland | `edge-of-the-arctic-info` | `edge-of-the-arctic-info.edgeoftheartic.workers.dev` |
+
+Both are blocked from Google until launch. Both run on the **same free stack** and
+the **same single Gmail login**. Nothing here costs more than a few pounds a month
+(only the domains and per-transaction payment fees).
 
 ---
 
-## 1. One login runs everything
+## 1. Why two sites, and how they feed each other
 
-The whole project is built around **a single Google (Gmail) account**, so you
-don't juggle passwords. That one login gets you into all four services:
+The old setup had two half-working sites pulling in different directions:
+`edgeofthearctic.travel` (a cluttered tours site) and `edgeofthearctic.is` (an
+abandoned regional-info portal full of dead links). We split the jobs cleanly and
+rebuilt both:
 
-| Service | What it's for | How you sign in |
+- **edgeofthearctic.travel** is now a focused **tour-selling** site — someone
+  planning a trip lands here, browses journeys, and books. No restaurant/room
+  clutter to distract from that.
+- **edgeofthearctic.is** is a brand-new **local hub** — someone searching "restaurant
+  near Akureyri" or "where to stay in North Iceland" lands here, finds Eyri
+  Restaurant (with a push to leave a **Google review**), the guesthouse, and a guide
+  to the area. It replaces the old dead `.is` portal with something that actually
+  works and drives bookings to the restaurant and rooms.
+
+**They point at each other on purpose:**
+- `.travel` → `.is`: a "Visit us in North Iceland" section sends tour visitors to the
+  restaurant, rooms and area guide.
+- `.is` → `.travel`: an "Our Expeditions ↗" link and a "We also run tours" section
+  send local visitors to the journeys.
+- Same brand, same logo, same design — they read as one company, two front doors.
+- Enquiry forms on both land in the **same Gmail inbox**.
+
+The result: whichever door a visitor comes through (planning a big trip, or just
+looking for dinner near Akureyri), they can find everything else the business offers.
+
+---
+
+## 2. One login runs everything
+
+Everything hangs off **a single Google (Gmail) account**, so there are no passwords
+to juggle:
+
+| Service | For | Sign in with |
 |---|---|---|
-| **Gmail** — `edgeoftheartic@gmail.com` | The hub. Enquiry-form emails land here. | The password (sent to you separately) |
-| **GitHub** | The website's code & change history | "Sign in with Google" → the same Gmail |
-| **Cloudflare** | Hosting + auto-deploy | "Sign in with Google" → the same Gmail |
-| **Web3Forms** | Delivers the contact forms to Gmail | Already set up; log in with the same Gmail if needed |
+| **Gmail** — `edgeoftheartic@gmail.com` | The hub; all enquiry emails land here | The password (sent separately) |
+| **GitHub** (`github.com/edgeoftheartic`) | Both websites' code — two repos | "Sign in with Google" |
+| **Cloudflare** | Hosting + auto-deploy — two Workers, one per site | "Sign in with Google" |
+| **Web3Forms** | Delivers both sites' forms to Gmail | Same Gmail |
 
-> **Note on the spelling:** the account is `edgeoftheartic@gmail.com` —
-> "artic" without the second **c** (it was the address that was free). Everything
-> lives under that exact spelling: the GitHub account is **github.com/edgeoftheartic**
-> and the site's temporary address is **edgeoftheartic.workers.dev**. If any login
-> ever looks off, that spelling is the source of truth.
+> The account spelling is `edgeoftheartic@gmail.com` — "artic" without the second
+> **c**. Everything lives under that exact spelling (GitHub `edgeoftheartic`, the
+> Worker URLs `…edgeoftheartic.workers.dev`). If a login ever looks off, that's the
+> source of truth.
 
-**The handover files** (this document, the strategy plan, and the FAQ draft for
-Sarah & Nik) are in the **Google Drive → My Drive** of that same account.
-
-**That's the whole handover:** sign into the Gmail account and you have the code,
-the hosting, the forms and the files. Nothing else to transfer.
+The handover documents (this guide, the strategy plan, the FAQ draft) are in the
+**Google Drive → My Drive** of that same account.
 
 ---
 
-## 2. What the site is built with
+## 3. What the sites are built with
 
-**No framework — deliberately.** It's hand-written static HTML5/CSS/JavaScript
-(not Next.js, not WordPress). No build step, no CMS, no database, no plugins to
-update. One small JavaScript "Worker" script runs on Cloudflare's edge for the
-Stripe checkout, robots.txt and sitemap. That's the entire stack:
+**No framework, deliberately.** Both are hand-written static HTML/CSS/JavaScript
+(not Next.js, not WordPress). No build step, no CMS, no database, no plugins. Each
+site has one small Cloudflare "Worker" script for its robots.txt/sitemap (and, on
+`.travel`, the Stripe checkout). That's the whole stack:
 
-| Layer | Technology | Monthly cost |
+| Layer | Technology | Cost |
 |---|---|---|
-| Hosting + CDN + SSL | Cloudflare Workers (static assets) | **$0** (free tier, far above this site's needs) |
-| Code & change history | GitHub repo `edgeoftheartic/edge-of-the-arctic-website` | $0 |
-| Enquiry forms | Web3Forms (posts straight to Gmail) | $0 (free tier) |
-| Payments | WeTravel (group trips) + Stripe (optional) | $0 fixed — per-transaction fees only |
-| Domain | stays at GoDaddy — only the **nameservers** move to Cloudflare | unchanged |
+| Hosting + CDN + SSL | Cloudflare Workers (one per site) | **$0** (free tier) |
+| Code & history | GitHub (two repos) | $0 |
+| Enquiry forms | Web3Forms → Gmail | $0 |
+| Payments (.travel) | WeTravel (group trips) + Stripe (optional) | per-transaction only |
+| Domains | GoDaddy — nameservers move to Cloudflare at launch | unchanged |
 
-Versus the old WordPress/GoDaddy setup, recurring cost drops to essentially
-**zero** and there's nothing to maintain: no WP/plugin/theme updates, no
-security patching, no hosting renewals.
-
----
-
-## 3. How the site works (the mental model)
-
-Three things, and they chain together automatically:
-
-1. **GitHub** holds every file of the website.
-2. When a change is saved ("committed") to GitHub, **Cloudflare notices and
-   redeploys the live site within about a minute.** You never log into
-   Cloudflare to publish — it just happens.
-3. The site is plain files, so a change is literally editing text in a file.
-
-So the only skill you need is: **change a file in GitHub → it goes live.**
-Section 6 shows you the easiest ways to do that, including using Claude.
+Versus the old WordPress/GoDaddy setup, recurring cost drops to ~zero and there's
+nothing to maintain: no updates, no security patching, no hosting renewals.
 
 ---
 
-## 4. WeTravel, FareHarbor & Stripe
+## 4. How editing works (the mental model)
 
-To clear up one thing: **FareHarbor isn't used anywhere** — the old site is 100%
-WeTravel. When you asked "can WeTravel be as seamless as FareHarbor," the answer
-is yes, in stages:
+Each site = the files in its GitHub repo. When you save ("commit") a change to a
+repo, **Cloudflare notices and redeploys that site within about a minute.** You
+never log into Cloudflare to publish — it just happens. So the only skill needed is:
+**edit a file in the right repo → it goes live.**
 
-1. **Now (live):** booking buttons deep-link to WeTravel trip pages — two clicks
-   to checkout, every link verified working (the old site has 9 dead ones).
-2. **Seamless (small upgrade):** WeTravel's **embedded checkout** opens payment
-   in a pop-up so guests never appear to leave the site (~an afternoon's work).
-3. **Stripe (optional):** wired for the flagship Greenland deposit only, because
-   the 2027 departures don't exist in WeTravel yet. If Nik creates them there,
-   the deposit button becomes a WeTravel link and Stripe sits dormant. End state
-   can simply be **"all payments through WeTravel."**
+Three ways to edit, easiest first (all work on either repo):
 
----
+1. **GitHub in the browser (zero setup):** open the repo on github.com, press `.` —
+   a full editor opens. Change the text → Commit & Push → live in ~1 minute.
+2. **Copy a template:** on `.travel`, a new tour = copy `site/tours/_template.html`;
+   a new blog post = copy `site/journal/_template.html` (numbered instructions inside
+   each).
+3. **Let Claude do it** (for anything bigger) — see the cheat sheet in section 8.
 
-## 5. Steps to launch
-
-Setup is **done** — hosting, deploys, forms and payments all work on the preview
-URL. Remaining:
-
-1. **Content review** — read the site, correct facts, improve copy (your area).
-2. **Two placeholder photos** — a real guesthouse room and a Nik & Sarah
-   portrait (`site/assets/img/guesthouse.jpg`, `nik-sara.jpg`).
-3. **FAQ answers** — the FAQ draft (in Google Drive) goes to Sarah & Nik;
-   answers get plugged into the contact page.
-4. **Terms specifics** — deposit/cancellation numbers to confirm (flagged in
-   `/terms/`).
-5. **Stripe (optional):** finish verification and swap test → live key, or run
-   everything through WeTravel.
-6. **Launch:** point the domain's nameservers to Cloudflare and attach the
-   domain. The old site keeps running until that moment; the site's
-   robots.txt/sitemap flip to "index me" automatically on the real domain.
-7. **301 redirects** old URLs → new pages so Google rankings transfer.
+**Golden rule:** after any change, wait ~1 minute and check the site's preview URL.
+Nothing you do can break a site permanently — GitHub keeps every previous version,
+so anything can be undone.
 
 ---
 
-## 6. How to edit the site — three ways, easiest first
+## 5. Payments & booking (.travel)
 
-You do **not** need to be a coder for the first two.
-
-### A) Quick text tweak — GitHub in the browser (zero setup)
-1. Go to **github.com/edgeoftheartic/edge-of-the-arctic-website** (signed in with
-   the Gmail).
-2. Press the **`.`** key. A full editor opens in your browser (this is
-   "github.dev").
-3. Open the page's file (e.g. `site/dine/index.html`), change the words.
-4. Click the **Source Control** icon on the left → write a short message →
-   **Commit & Push**. The site updates in ~1 minute.
-
-### B) New tour or blog post — copy a template
-Every routine job is a copy-the-template job:
-- **New tour page:** copy `site/tours/_template.html`, follow the numbered
-  instructions at the top of the file (~10 min; SEO built in).
-- **New blog post:** copy `site/journal/_template.html` (~5 min).
-
-### C) Anything bigger — let Claude do it
-For real changes ("add a testimonials section to every destination page",
-"restyle the buttons", "build a new page for X"), use Claude — see the cheat
-sheet below. You describe what you want in plain English; Claude edits the files,
-commits, and the site deploys itself.
-
-**The golden rule for all three:** after any change, wait ~1 minute and check the
-live preview URL to see it. Nothing you do can break the site permanently —
-GitHub keeps every previous version, so anything can be undone.
+- **WeTravel** runs the scheduled group-trip bookings (card, bank transfer, payment
+  plans). To clear up an earlier question: **FareHarbor isn't used anywhere** — when
+  you asked "can WeTravel be as seamless as FareHarbor," the answer is yes; WeTravel's
+  embedded checkout can open payment in a pop-up so guests never appear to leave the
+  site (a small future upgrade).
+- **Stripe** is wired only for the flagship Greenland deposit for now (those 2027
+  departures don't exist in WeTravel yet). If Nik adds them to WeTravel, the deposit
+  button becomes a WeTravel link and Stripe sits dormant. End state can simply be
+  "all payments through WeTravel."
 
 ---
 
-## 7. Cheat sheet — getting up and running with Claude
+## 6. Steps to launch (per site)
 
-**Goal:** be able to say, in plain English, "change X on the website," and have
+Both sites are **built, deployed to their preview URLs, and working.** Remaining
+before each domain goes public:
+
+**Shared / content**
+- Review the copy on both sites; correct any facts.
+- Answer the FAQ draft (in Google Drive) → plugged into `.travel`'s contact page.
+- Two real photos still needed: the guesthouse room (`.is` `site/assets/img/
+  guesthouse.jpg`) and a Nik & Sarah portrait (`.travel` `site/assets/img/
+  nik-sara.jpg`).
+
+**edgeofthearctic.is specifically**
+- **Google review link:** the restaurant page's "Write a Google Review" button uses a
+  working Google-Maps fallback; for a true one-click review, paste the restaurant's
+  `g.page/r/…` short link (Google Business Profile → "Ask for reviews") — there's a
+  `TODO` comment in `site/eat/index.html`.
+- Decide whether to retire the old Wix `eyrirestaurant.is` in favour of the new,
+  richer `/eat/` page here.
+
+**edgeofthearctic.travel specifically**
+- Confirm the deposit/cancellation specifics flagged in `/terms/`.
+- Stripe: finish verification and swap test → live key (or route everything via
+  WeTravel).
+- Optional: confirm the WhatsApp number (+354 862 9697) is WhatsApp-enabled — the
+  WhatsApp/Call buttons are tagged `data-prelaunch` so they're easy to pull if not.
+
+**Launch (each domain)**
+- Point the domain's nameservers to Cloudflare and attach it to that site's Worker.
+  The old sites keep running until that moment; each site's robots.txt/sitemap flip
+  to "index me" automatically on the real domain.
+- Add 301 redirects from old URLs → new pages so Google rankings transfer.
+
+---
+
+## 7. Site inventory
+
+**edgeofthearctic.travel** (~30 pages): Home · Tours (with instant filter chips &
+deep-links) · flagship Greenland by Sea · Reset Croatia · Destinations (8 country
+pages) · Ways to Travel (5 style pages) · Journal (6 posts) · About · Contact & FAQ ·
+Book · Privacy · Terms. Every tour links to a live WeTravel booking page.
+
+**edgeofthearctic.is** (5 pages): Home · Eat (Eyri Restaurant + Google-reviews push) ·
+Stay (guesthouse + enquiry form) · Explore (North Iceland area guide) · Contact.
+
+Both: unique titles/descriptions, canonical URLs, Open Graph share cards, schema.org
+markup, the company logo, and the Ferðamálastofa licence badge — SEO-ready.
+
+---
+
+## 8. Cheat sheet — running the sites with Claude
+
+**Goal:** say, in plain English, "change X on the [tours / restaurant] site," and have
 it done and live — without hand-writing code.
 
-### Step 1 — Get Claude (5 minutes)
-- Go to **claude.ai** and **sign in with Google**, using the same
-  `edgeoftheartic@gmail.com` account. (One login, still.)
-- For editing the website, use **Claude Code** — Anthropic's coding tool. Easiest
-  option: the **Claude desktop app** (Mac/Windows) or **claude.ai/code** in the
-  browser. Both let Claude work directly with the GitHub repo.
-- A paid Claude plan is needed for meaningful coding use — the Pro plan is plenty
-  to manage this site.
+**Step 1 — Get Claude.** Go to claude.ai, **sign in with Google** (same Gmail). For
+editing, use **Claude Code** (the Claude desktop app or claude.ai/code). A paid plan
+(Pro is plenty) is needed for real coding use.
 
-### Step 2 — Connect Claude to the website's code (one-time)
-You're connecting Claude to the **GitHub repo** so it can see and change the site:
-- In Claude Code, choose to **open / connect a GitHub repository** and pick
-  **edgeoftheartic/edge-of-the-arctic-website**. (Because GitHub uses the same
-  Google login, authorising it is a couple of clicks.)
-- If you prefer working on your own computer: install the free **GitHub Desktop**
-  app, "Clone" that repo to a folder, then point the Claude desktop app at that
-  folder. Claude edits the files; GitHub Desktop's **Push** button sends them
-  live.
+**Step 2 — Connect the repo (one-time, per site).** In Claude Code, open / connect a
+GitHub repository and pick the right one:
+- **edge-of-the-arctic-website** for the tours site
+- **edge-of-the-arctic-info** for the restaurant/local site
+(Because GitHub uses the same Google login, authorising is a couple of clicks.)
 
-*Either way, the important part is that Claude can see the repo. Once it can,
-you're ready.*
+**Step 3 — Ask.** Describe the change; Claude edits the files and commits, which
+auto-publishes. Examples:
+- *"On the restaurant site, change the opening hours to 18:00–22:00 everywhere."*
+- *"Add a new tour on the tours site for a 5-day Faroe photography trip — copy the
+  tour template, here are the details…"*
+- *"Add three new guest reviews to the restaurant page."*
 
-### Step 3 — Ask for what you want (in plain English)
-Open the project in Claude and just describe the change. Real examples that work:
-- *"On the Eat page, change the opening hours to 18:00–22:00 and update it
-  everywhere it appears."*
-- *"Add a new tour page for a 5-day Faroe Islands photography trip — copy the
-  tour template, here are the details… then add a card for it on the tours page."*
-- *"Add three guest reviews to the homepage testimonials section — here's the
-  text."*
-- *"The booking button colour is too pale — make it a bit bolder."*
+**Step 4 — Check.** Wait ~1 minute, refresh the site's preview URL. Not right? Tell
+Claude "undo that" — every version is saved.
 
-Claude will make the changes, explain what it did, and (if you ask, or in Claude
-Code by default) commit them to GitHub — which auto-publishes them.
-
-### Step 4 — Check it went live
-Wait ~1 minute, then refresh the site (the preview URL now, the real domain after
-launch). If something's not right, just tell Claude "undo that" or "change it
-so…" — every version is saved, nothing is lost.
-
-### Handy things to tell Claude
-- **"Show me the change before publishing"** if you want to review first.
-- **"Where is the file for the [X] page?"** if you're hunting for something.
-- **"Explain how the booking buttons work"** — it'll read the code and tell you.
-- Point it at this repo's **`site/README.md`** — it documents the structure,
-  the templates, and how deploys work, so Claude has the full picture.
-
-### What you'll almost never need to touch
-- **Cloudflare** — only for the domain switch at launch and (once) the Stripe
-  key. Not for content.
-- **The Worker code** (`worker/index.js`) — handles robots/sitemap/Stripe;
-  leave it unless changing payment behaviour.
-
----
-
-## 8. Current site inventory (35 indexed pages)
-
-- Home · Tours index · **Greenland by Sea flagship** · **Reset Croatia**
-- **Destinations:** index + Iceland, Greenland, Faroe Islands, Croatia, Slovenia,
-  Bosnia, Greece, Bulgaria — each linked to its correct live products
-- **Ways to Travel:** hub + Women-Only, Food & Wine, Private & Tailor-Made,
-  Off-Road & Highlands, LGBTQ+ Friendly
-- **Journal:** index + all 6 blog posts migrated from the old site
-- **How We Travel** (responsible-travel policy) · Stay · Eat (Eyri) · North
-  Iceland guide · About · Contact & FAQ · Book · Privacy · Terms
-- Guest **testimonials**, the company **globe logo**, and the **Ferðamálastofa
-  licence badge** in every footer
-- Every page: unique title/description, canonical, Open Graph share cards, and
-  schema.org markup (rich-result ready)
+**Handy:** point Claude at a repo's `README.md` — it documents the structure and how
+deploys work. You'll almost never touch Cloudflare (only for the launch domain switch
+and the one Stripe key) or the `worker/` code.
 
 ---
 
 ## 9. Working together
 
-The GitHub repo is the single source of truth — nothing is locked to one person.
-Content and destination knowledge (you) flows into the template-driven pages;
-the structure, booking and SEO plumbing is already in place. The `site/README.md`
-in the repo is the technical reference for anything not covered here.
+Two clean repos, one login, one design system. Content and local knowledge (you)
+flow into the template-driven pages; the structure, booking and SEO plumbing is done.
+Each repo's `README.md` is the technical reference. A GitHub collaborator invite (from
+the `edgeoftheartic` account, on each repo) is all you need to start.
