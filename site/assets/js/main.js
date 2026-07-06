@@ -73,3 +73,22 @@ document.querySelectorAll("[data-checkout]").forEach((btn) => {
     }
   });
 });
+
+// Tour catalogue filter chips (on /tours/) — instant, in-place, all cards stay in DOM for SEO
+document.querySelectorAll("[data-tour-filter]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.tourFilter;
+    document.querySelectorAll("[data-tour-filter]").forEach((b) =>
+      b.classList.toggle("is-active", b === btn)
+    );
+    let shown = 0;
+    document.querySelectorAll(".tour-card").forEach((card) => {
+      const tags = (card.dataset.tags || "").split(" ");
+      const match = filter === "all" || tags.includes(filter);
+      card.style.display = match ? "" : "none";
+      if (match) shown++;
+    });
+    const empty = document.querySelector(".filter-empty");
+    if (empty) empty.hidden = shown > 0;
+  });
+});

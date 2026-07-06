@@ -36,28 +36,16 @@
   </div>
 </header>
 
-<section class="hero" style="padding:70px 0 48px; --hero-img: url('/assets/img/hero-home.jpg')">
+<section class="hero" style="padding:70px 0 44px; --hero-img: url('/assets/img/hero-home.jpg')">
   <div class="container">
     <span class="kicker">Small groups &middot; Personally hosted &middot; Book online</span>
     <h1>Expeditions &amp; Tours</h1>
     <hr class="dash-rule center">
-    <p class="tagline">Every journey is built and led by us — never more than 12 guests, always eating locally, always away from the crowds. Browse them all below, or ask us to build one just for you.</p>
+    <p class="tagline">Every journey is built and led by us — never more than 12 guests, always eating locally, always away from the crowds. Filter the catalogue below, or ask us to build one just for you.</p>
   </div>
 </section>
 
-<section class="section" style="padding:26px 0 8px">
-  <div class="container">
-    <nav class="tour-nav" aria-label="Jump to a section">
-      <a href="#iceland">Iceland</a>
-      <a href="#greenland">Greenland</a>
-      <a href="#beyond">Beyond</a>
-      <a href="#by-style">By style</a>
-      <a href="/book/?journey=tailor-made">Tailor-made</a>
-    </nav>
-  </div>
-</section>
-
-<section class="section" style="padding-top:28px" id="greenland">
+<section class="section" style="padding-top:34px">
   <div class="container">
     <a class="feature-banner" href="/tours/greenland-by-sea.html">
       <div class="fb-img" style="background-image:url('/assets/img/hero-greenland.jpg')"></div>
@@ -72,88 +60,84 @@
   </div>
 </section>
 
-<section class="section dim" id="iceland">
+<section class="section dim" id="catalogue" style="padding-top:44px">
   <div class="container">
-    <div class="section-head">
-      <span class="kicker">North Iceland, our home</span>
-      <h2>Iceland Journeys</h2>
-      <hr class="dash-rule">
+    <div class="section-head center" style="margin-bottom:26px">
+      <span class="kicker">Browse &amp; book</span>
+      <h2>Find Your Journey</h2>
+      <hr class="dash-rule center">
     </div>
-    <div class="card-grid">
-      <div class="card">
+    <div class="filter-bar" role="group" aria-label="Filter journeys by type">
+      <button class="filter-chip is-active" data-tour-filter="all">All journeys</button>
+      <button class="filter-chip" data-tour-filter="iceland">Iceland</button>
+      <button class="filter-chip" data-tour-filter="northern-lights">Northern Lights</button>
+      <button class="filter-chip" data-tour-filter="food-wine">Food &amp; Wine</button>
+      <button class="filter-chip" data-tour-filter="women-only">Women-Only</button>
+      <button class="filter-chip" data-tour-filter="faroe">Faroe Islands</button>
+      <button class="filter-chip" data-tour-filter="croatia">Croatia &amp; Balkans</button>
+    </div>
+    <div class="card-grid" id="tour-grid" style="margin-top:34px">
+      <div class="card tour-card" data-tags="iceland">
         <div class="card-img"><img src="/assets/img/hjalteyri.jpg" alt="Hjalteyri on Eyjafjörður" loading="lazy"></div>
         <div class="card-body">
-          <div class="meta">10 days &middot; All-inclusive &middot; Small group</div>
+          <div class="meta">10 days &middot; all-inclusive</div>
           <h3>Iceland Deep Reset</h3>
-          <p>Slow down properly: Reykjavík, the silent Westfjords at Djúpavík, then a week of fjord walks, whale watching, sea saunas, cold dips and nourishing food based at Hjalteyri.</p>
+          <p>Reykjavík, the silent Westfjords at Djúpavík, then a week of fjord walks, whale watching, saunas and nourishing food.</p>
           <div class="card-cta">
             <span class="price">$4,800 <small>&middot; deposit $1,100</small></span><br><br>
-            <a class="btn btn-dark" href="https://www.wetravel.com/trips/iceland-deep-reset-10-day-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-2718349774" target="_blank" rel="noopener">Dates &amp; Booking</a>
+            <a class="btn btn-dark btn-block" href="https://www.wetravel.com/trips/iceland-deep-reset-10-day-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-2718349774" target="_blank" rel="noopener">Dates &amp; Booking</a>
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card tour-card" data-tags="iceland">
         <div class="card-img"><img src="/assets/img/akureyri.jpg" alt="Eyjafjörður fjord" loading="lazy"></div>
         <div class="card-body">
-          <div class="meta">7 days &middot; All-inclusive &middot; Small group</div>
+          <div class="meta">7 days &middot; all-inclusive</div>
           <h3>Iceland Reset</h3>
-          <p>The essential reset: Reykjavík arrival, two nights in remote Djúpavík, and four fjord-side days in Hjalteyri — geothermal bathing, gentle hikes and evenings at Eyri.</p>
+          <p>The essential reset: Reykjavík, two nights in remote Djúpavík, then four fjord-side days at Hjalteyri.</p>
           <div class="card-cta">
             <span class="price">$3,360 <small>&middot; deposit $1,100</small></span><br><br>
-            <a class="btn btn-dark" href="https://www.wetravel.com/trips/iceland-reset-7-day-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-6119219415" target="_blank" rel="noopener">Dates &amp; Booking</a>
+            <a class="btn btn-dark btn-block" href="https://www.wetravel.com/trips/iceland-reset-7-day-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-6119219415" target="_blank" rel="noopener">Dates &amp; Booking</a>
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card tour-card" data-tags="iceland northern-lights">
         <div class="card-img"><img src="/assets/img/arctic-henge-card.jpg" alt="Northern lights over North Iceland" loading="lazy"></div>
         <div class="card-body">
-          <div class="meta">7 days &middot; 10–16 Oct &amp; 7–13 Nov 2026</div>
+          <div class="meta">7 days &middot; Oct &amp; Nov 2026</div>
           <h3>Northern Lights Adventure</h3>
-          <p>Aurora hunting timed to the new moon: Reykjavík on Laugavegur, the Golden Circle, hidden hot springs, whale watching and Mývatn's volcanic country — all planned, so you just show up. A favourite with solo female travellers.</p>
+          <p>Aurora hunting timed to the new moon: Golden Circle, hidden hot springs, whale watching and Mývatn. A favourite with solo female travellers.</p>
           <div class="card-cta">
             <span class="price">€2,926 <small>&middot; deposit €500</small></span><br><br>
-            <a class="btn btn-dark" href="https://www.wetravel.com/trips/northern-lights-adventure-october-2026-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-5545436498" target="_blank" rel="noopener">Dates &amp; Booking</a>
+            <a class="btn btn-dark btn-block" href="https://www.wetravel.com/trips/northern-lights-adventure-october-2026-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-5545436498" target="_blank" rel="noopener">Dates &amp; Booking</a>
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card tour-card" data-tags="iceland northern-lights">
+        <div class="card-img"><img src="/assets/img/hero-home.jpg" alt="Northern lights over Hjalteyri" loading="lazy"></div>
+        <div class="card-body">
+          <div class="meta">4 days &middot; short break</div>
+          <h3>Northern Lights Escapes</h3>
+          <p>The aurora on a long weekend: fly in, settle on the fjord, chase the lights and soak in geothermal water. Minimal travel.</p>
+          <div class="card-cta">
+            <span class="price">from £1,180 <small>&middot; deposit £500</small></span><br><br>
+            <a class="btn btn-dark btn-block" href="https://www.wetravel.com/trips/northern-lights-escapes-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-5027944362" target="_blank" rel="noopener">Dates &amp; Booking</a>
+          </div>
+        </div>
+      </div>
+      <div class="card tour-card" data-tags="iceland">
         <div class="card-img"><img src="/assets/img/dettifoss.jpg" alt="Spring in Iceland" loading="lazy"></div>
         <div class="card-body">
           <div class="meta">10 days &middot; 11–20 May 2027</div>
           <h3>Vibrant Iceland in Spring</h3>
-          <p>Iceland waking up: migrating birds, lambing season, waterfalls in full thunder and long bright evenings — the whole country feels newly minted.</p>
+          <p>Iceland waking up: migrating birds, lambing season, waterfalls in full thunder and long bright evenings.</p>
           <div class="card-cta">
             <span class="price">$3,960 <small>&middot; deposit $400</small></span><br><br>
-            <a class="btn btn-dark" href="https://www.wetravel.com/trips/vibrant-iceland-in-spring-may-2026-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-70977448" target="_blank" rel="noopener">Next Dates &amp; Booking</a>
+            <a class="btn btn-dark btn-block" href="https://www.wetravel.com/trips/vibrant-iceland-in-spring-may-2026-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-70977448" target="_blank" rel="noopener">Dates &amp; Booking</a>
           </div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-img"><img src="/assets/img/hero-home.jpg" alt="Northern lights over Hjalteyri" loading="lazy"></div>
-        <div class="card-body">
-          <div class="meta">4 days &middot; short break &middot; Hjalteyri base</div>
-          <h3>Northern Lights Escapes</h3>
-          <p>The aurora on a long weekend: fly in, settle on the fjord at Hjalteyri, chase the lights and soak in geothermal water — everything handled, minimal travel.</p>
-          <div class="card-cta">
-            <span class="price">from £1,180 <small>&middot; deposit £500</small></span><br><br>
-            <a class="btn btn-dark" href="https://www.wetravel.com/trips/northern-lights-escapes-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-5027944362" target="_blank" rel="noopener">Dates &amp; Booking</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="beyond">
-  <div class="container">
-    <div class="section-head">
-      <span class="kicker">…and beyond</span>
-      <h2>Beyond Iceland</h2>
-      <hr class="dash-rule">
-      <p>The "Beyond" in our name: a handful of journeys each year to places we know personally and love — the Faroes, and the food, faith and wild nature of the Balkans.</p>
-    </div>
-    <div class="card-grid">
-      <div class="card">
+      <div class="card tour-card" data-tags="faroe">
         <div class="card-img"><img src="/assets/img/faroe.jpg" alt="Faroe Islands cliffs" loading="lazy"></div>
         <div class="card-body">
           <div class="meta">6 days &middot; 24–29 May 2027</div>
@@ -161,59 +145,59 @@
           <p>Sea cliffs, sod-roofed villages and roads that end in ocean — the North Atlantic's best-kept secret, in one unhurried week.</p>
           <div class="card-cta">
             <span class="price">$2,650 <small>&middot; deposit $900</small></span><br><br>
-            <a class="btn btn-dark" href="https://www.wetravel.com/trips/faroe-island-adventure-may-2026-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-82318933" target="_blank" rel="noopener">Next Dates &amp; Booking</a>
+            <a class="btn btn-dark btn-block" href="https://www.wetravel.com/trips/faroe-island-adventure-may-2026-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-82318933" target="_blank" rel="noopener">Dates &amp; Booking</a>
           </div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-img"><img src="/assets/img/croatia-gulet.jpg" alt="The gulet M/S Stella Maris under sail on the Adriatic" loading="lazy"><span class="flag">The Reset Collection</span></div>
+      <div class="card tour-card" data-tags="croatia food-wine">
+        <div class="card-img"><img src="/assets/img/croatia-gulet.jpg" alt="The gulet M/S Stella Maris" loading="lazy"><span class="flag">Reset Collection</span></div>
         <div class="card-body">
-          <div class="meta">10 nights &middot; Istria &amp; Dalmatia &middot; Private departures</div>
+          <div class="meta">10 nights &middot; Istria &amp; Dalmatia &middot; private</div>
           <h3>Reset Croatia</h3>
-          <p>Luxury through understanding: Zagreb, a restored stone estate in Istria with truffle hunting and wine, then five nights aboard the gulet M/S Stella Maris through Vis, Korčula and Hvar.</p>
+          <p>Zagreb, a restored stone estate in Istria with truffle hunting and wine, then five nights aboard a gulet through the Dalmatian islands.</p>
           <div class="card-cta">
-            <span class="price">Priced on enquiry <small>&middot; private &amp; custom departures</small></span><br><br>
-            <a class="btn btn-primary" href="/tours/reset-croatia.html">Explore the Journey</a>
+            <span class="price">on enquiry</span><br><br>
+            <a class="btn btn-primary btn-block" href="/tours/reset-croatia.html">Explore the Journey</a>
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card tour-card" data-tags="croatia">
         <div class="card-img"><img src="/assets/img/croatia.jpg" alt="Croatia and Bosnia landscapes" loading="lazy"></div>
         <div class="card-body">
-          <div class="meta">12 days &middot; Croatia &amp; Bosnia-Herzegovina</div>
+          <div class="meta">12 days &middot; Croatia &amp; Bosnia</div>
           <h3>Croatia &amp; Hidden Bosnia</h3>
-          <p>Faith, kingdoms and wild nature: from the Adriatic coast into the mountains and monasteries of Bosnia, eating like locals the whole way.</p>
+          <p>Faith, kingdoms and wild nature: from the Adriatic coast into the mountains and monasteries of Bosnia, eating like locals.</p>
           <div class="card-cta">
             <span class="price">€2,950 <small>&middot; deposit €900</small></span><br><br>
-            <a class="btn btn-dark" href="https://www.wetravel.com/trips/croatia-and-hidden-bosnia-faith-kingdoms-and-wild-nature-12-days-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-6042767341" target="_blank" rel="noopener">Dates &amp; Booking</a>
+            <a class="btn btn-dark btn-block" href="https://www.wetravel.com/trips/croatia-and-hidden-bosnia-faith-kingdoms-and-wild-nature-12-days-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-6042767341" target="_blank" rel="noopener">Dates &amp; Booking</a>
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card tour-card" data-tags="croatia food-wine">
         <div class="card-img"><img src="/assets/img/croatia-foscari.jpg" alt="Istrian farmstead dinner" loading="lazy"></div>
         <div class="card-body">
           <div class="meta">9 days &middot; 20–28 Mar 2027</div>
           <h3>Easter Break: Croatian Wine &amp; Food</h3>
-          <p>Spring in Croatia through its kitchens and cellars — markets, family wineries, truffles and long Easter lunches on the Istrian coast.</p>
+          <p>Spring in Croatia through its kitchens and cellars — markets, family wineries, truffles and long Easter lunches.</p>
           <div class="card-cta">
             <span class="price">from $3,175 <small>&middot; deposit $400</small></span><br><br>
-            <a class="btn btn-dark" href="https://www.wetravel.com/trips/easter-break-croatian-wine-food-and-culture-march-2027-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-20778929" target="_blank" rel="noopener">Dates &amp; Booking</a>
+            <a class="btn btn-dark btn-block" href="https://www.wetravel.com/trips/easter-break-croatian-wine-food-and-culture-march-2027-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-20778929" target="_blank" rel="noopener">Dates &amp; Booking</a>
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card tour-card" data-tags="croatia">
         <div class="card-img"><img src="/assets/img/slovenia-bled.jpg" alt="Lake Bled, Slovenia" loading="lazy"></div>
         <div class="card-body">
           <div class="meta">12 days &middot; 3–14 Apr 2027</div>
           <h3>Heaven on Earth: Croatia &amp; Slovenia</h3>
-          <p>Two countries at their spring best: the Julian Alps and Lake Bled, Ljubljana, and down to the Adriatic — alpine lakes to island harbours.</p>
+          <p>Two countries at their spring best: the Julian Alps and Lake Bled, Ljubljana, and down to the Adriatic.</p>
           <div class="card-cta">
             <span class="price">from $3,850 <small>&middot; deposit $700</small></span><br><br>
-            <a class="btn btn-dark" href="https://www.wetravel.com/trips/heaven-on-earth-croatia-slovenia-april-2027-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-8794943525" target="_blank" rel="noopener">Dates &amp; Booking</a>
+            <a class="btn btn-dark btn-block" href="https://www.wetravel.com/trips/heaven-on-earth-croatia-slovenia-april-2027-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-8794943525" target="_blank" rel="noopener">Dates &amp; Booking</a>
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card tour-card" data-tags="croatia food-wine women-only">
         <div class="card-img"><img src="/assets/img/greece-sailing.jpg" alt="Adriatic sailing" loading="lazy"><span class="flag">Women only</span></div>
         <div class="card-body">
           <div class="meta">13 days &middot; 3–15 Apr 2027 &middot; women-only</div>
@@ -221,22 +205,13 @@
           <p>A women-only food-and-wine journey through Croatia, Slovenia and Italy — markets, cellars, coastlines and wonderful company.</p>
           <div class="card-cta">
             <span class="price">from €4,315 <small>&middot; deposit €430</small></span><br><br>
-            <a class="btn btn-dark" href="https://www.wetravel.com/trips/savor-the-adriatic-a-food-and-wine-journey-april-2027-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-3252841855" target="_blank" rel="noopener">Dates &amp; Booking</a>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img"><img src="/assets/img/langanes.jpg" alt="Private journey planning" loading="lazy"></div>
-        <div class="card-body">
-          <div class="meta">Any dates &middot; Private</div>
-          <h3>Tailor-Made Journeys</h3>
-          <p>Your dates, your pace, your interests — from a private day on the northeast coast to a full two-country expedition designed around you.</p>
-          <div class="card-cta">
-            <a class="btn btn-primary" href="/book/?journey=tailor-made">Start Planning</a>
+            <a class="btn btn-dark btn-block" href="https://www.wetravel.com/trips/savor-the-adriatic-a-food-and-wine-journey-april-2027-edge-of-the-arctic-and-beyond-langanes-ferdamannathjonusta-3252841855" target="_blank" rel="noopener">Dates &amp; Booking</a>
           </div>
         </div>
       </div>
     </div>
+    <p class="filter-empty" hidden style="text-align:center; color:var(--stone); margin-top:20px">Nothing scheduled under that filter right now — <a href="/book/?journey=tailor-made">ask us to build a private one</a>.</p>
+    <p style="text-align:center; margin-top:30px"><a class="btn btn-outline" href="/book/?journey=tailor-made">Or design a tailor-made journey →</a></p>
   </div>
 </section>
 

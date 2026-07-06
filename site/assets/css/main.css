@@ -494,3 +494,25 @@ input:focus, select:focus, textarea:focus {
 
 /* jump-link offset for sticky header */
 section[id] { scroll-margin-top: 84px; }
+
+/* ============ tour filter chips ============ */
+.filter-bar { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.filter-chip {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 9px 18px;
+  border-radius: 22px;
+  border: 1.5px solid #d4d0c6;
+  background: var(--white);
+  color: var(--stone);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.filter-chip:hover { border-color: var(--amber); color: var(--ink); }
+.filter-chip.is-active { background: var(--arctic); border-color: var(--arctic); color: var(--white); }
+
+/* ============ talk-to-us row (WhatsApp / call) ============ */
+.talk-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
+.talk-row .btn { display: inline-flex; align-items: center; }
