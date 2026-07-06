@@ -1,5 +1,5 @@
 # New website — technical handover & FAQ
-*For Philip · updated 5 July 2026 · answers to your questions + current status*
+*For Philip · updated 6 July 2026 · answers to your questions + current status*
 
 Live preview (blocked from Google until launch):
 **https://edge-of-the-arctic-website.edgeoftheartic.workers.dev**
@@ -88,7 +88,7 @@ on the preview URL. Remaining before launch:
 7. **301 redirects** old URLs → new pages (Cloudflare Bulk Redirects) so
    existing Google rankings transfer.
 
-## Current site inventory (26 indexed pages)
+## Current site inventory (35 indexed pages)
 
 - Home · Tours index · **Greenland by Sea flagship** · **Reset Croatia**
 - **Destinations:** index + Iceland, Greenland, Faroe Islands, Croatia,
