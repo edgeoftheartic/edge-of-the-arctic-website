@@ -440,3 +440,57 @@ input:focus, select:focus, textarea:focus {
 
 /* ============ licence badge ============ */
 .licence-badge { width: 92px; height: auto; border-radius: 8px; margin-top: 16px; opacity: 0.95; }
+
+/* ============ compact flagship feature banner ============ */
+.feature-banner {
+  display: flex;
+  align-items: stretch;
+  background: var(--arctic-deep);
+  color: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+.feature-banner:hover { transform: translateY(-2px); }
+.feature-banner .fb-img {
+  flex: 0 0 40%;
+  background-size: cover;
+  background-position: center;
+  min-height: 240px;
+}
+.feature-banner .fb-body { padding: 30px 34px; display: flex; flex-direction: column; justify-content: center; }
+.feature-banner .fb-body h2 { color: var(--white); margin: 4px 0 8px; }
+.feature-banner .fb-body p { color: rgba(255,255,255,0.85); font-size: 0.98rem; margin-bottom: 14px; }
+.feature-banner .fb-price { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--amber); margin-bottom: 16px; }
+.feature-banner .fb-price small { font-family: var(--font-body); font-weight: 500; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+.feature-banner .fb-cta { align-self: flex-start; }
+
+/* ============ tours jump-nav ============ */
+.tour-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  justify-content: center;
+  padding: 4px 0 0;
+}
+.tour-nav a {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stone);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+}
+.tour-nav a:hover { color: var(--amber-dark); border-bottom-color: var(--amber); }
+
+@media (max-width: 720px) {
+  .feature-banner { flex-direction: column; }
+  .feature-banner .fb-img { flex-basis: auto; min-height: 180px; }
+}
+
+/* jump-link offset for sticky header */
+section[id] { scroll-margin-top: 84px; }
