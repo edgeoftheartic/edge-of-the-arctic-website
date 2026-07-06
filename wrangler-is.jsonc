@@ -1,8 +1,0 @@
-{
-  // Cloudflare Worker config for the edgeofthearctic.is local hub.
-  // Deploy with:  npx wrangler deploy -c wrangler-is.jsonc
-  "name": "edgeofthearctic-is",
-  "compatibility_date": "2026-07-01",
-  "main": "worker-is/index.js",
-  "assets": { "directory": "./site-is", "binding": "ASSETS" }
-}
