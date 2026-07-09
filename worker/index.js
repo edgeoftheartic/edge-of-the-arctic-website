@@ -14,6 +14,46 @@
  */
 import { onRequestPost as createCheckoutSession } from "../site/functions/api/create-checkout-session.js";
 
+/**
+ * 301 redirects: old WordPress URLs → the closest new page.
+ * The DOMAIN is unchanged (edgeofthearctic.travel), so Google keeps the site's
+ * authority; these redirects transfer each old page's ranking to its new home
+ * and stop old indexed URLs 404-ing after launch. Add any stragglers Google
+ * Search Console reports post-launch.
+ */
+const REDIRECTS = {
+  "/discover-iceland": "/destinations/iceland.html",
+  "/discover-greenland": "/destinations/greenland.html",
+  "/greenland-adventure-tours": "/destinations/greenland.html",
+  "/faroe-islands": "/destinations/faroe-islands.html",
+  "/discover-faroe-islands": "/destinations/faroe-islands.html",
+  "/discover-croatia": "/destinations/croatia.html",
+  "/slovenia": "/destinations/slovenia.html",
+  "/bosnia": "/destinations/bosnia.html",
+  "/discover-greece": "/destinations/greece.html",
+  "/greece-food-and-wine-tours": "/destinations/greece.html",
+  "/discover-bulgaria": "/destinations/bulgaria.html",
+  "/upcoming-tours": "/tours/",
+  "/tailor-made-tours-iceland": "/ways-to-travel/private-and-tailor-made.html",
+  "/adventures-for-women-only-groups": "/ways-to-travel/women-only.html",
+  "/lgbtq-friendly-tours-in-iceland": "/ways-to-travel/lgbtq-friendly.html",
+  "/off-road-and-highland-adventures": "/ways-to-travel/off-road-and-highlands.html",
+  "/food-and-wine-tours": "/ways-to-travel/food-and-wine.html",
+  "/the-mediterranean-our-beyond-trips": "/destinations/",
+  "/contact-us": "/contact/",
+  "/privacy-policy": "/privacy/",
+  "/fly-fishing-for-arctic-char-in-greenland": "/journal/fly-fishing-arctic-char-greenland.html",
+  "/greece-local-tours": "/journal/greece-local-tours.html",
+  "/hidden-gems-of-bulgaria": "/journal/hidden-gems-of-bulgaria.html",
+  "/greenland-inuit-culture-tours": "/journal/greenland-inuit-culture.html",
+  "/truffle-hunting-croatia": "/journal/truffle-hunting-croatia.html",
+  "/spring-in-iceland": "/journal/spring-in-iceland.html",
+  // accommodation/restaurant/area moved to the .is site
+  "/stay": "https://edgeofthearctic.is/stay/",
+  "/dine": "https://edgeofthearctic.is/eat/",
+  "/explore": "https://edgeofthearctic.is/explore/",
+};
+
 const SITEMAP_PATHS = [
   "/",
   "/tours/",
@@ -53,6 +93,14 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const isTempHost = url.hostname.endsWith(".workers.dev");
+
+    // 301 old URLs → new pages (match with or without a trailing slash).
+    const cleanPath = url.pathname.replace(/\/$/, "") || "/";
+    const redirectTo = REDIRECTS[cleanPath];
+    if (redirectTo) {
+      const dest = redirectTo.startsWith("http") ? redirectTo : url.origin + redirectTo;
+      return Response.redirect(dest, 301);
+    }
 
     if (url.pathname === "/api/create-checkout-session") {
       if (request.method !== "POST") {
