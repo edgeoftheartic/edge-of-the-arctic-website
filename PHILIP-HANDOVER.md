@@ -110,6 +110,54 @@ so anything can be undone.
 
 ---
 
+## 4a. SEO & Google indexing at launch (Philip's question)
+
+**"Do the addresses stay the same, or do we need to do the Google indexing again?"**
+
+**The domains stay exactly the same** — `edgeofthearctic.travel` and
+`edgeofthearctic.is`. Google's authority and history attach to the *domain*, and the
+domain isn't changing — so you **keep** what those domains have earned. You are **not**
+starting indexing from scratch. This is a platform/content refresh on the same
+address, not a move to a new one (which is the risky kind).
+
+**What *does* change is the individual page paths** — the old WordPress URLs
+(`/discover-iceland/`, `/upcoming-tours/`, blog slugs, the old `.is` portal's
+`/where-to-dine/`, etc.) differ from the new structure. If those old URLs simply
+404'd after launch, you'd lose the ranking they'd built. So two things protect it:
+
+1. **301 redirects — already built in.** Each site's Worker now permanently
+   redirects every known old URL to its closest new page (e.g.
+   `/discover-iceland/` → `/destinations/iceland.html`, `/where-to-dine/` →
+   `/eat/`). A 301 passes the old page's ranking signal to the new page. These live
+   in `worker/index.js` in each repo (the `REDIRECTS` map) — add any stragglers
+   Google Search Console reports after launch.
+2. **Sitemaps — already built in.** Each site serves a fresh `sitemap.xml` that
+   auto-activates on the real domain.
+
+**At launch, do this in Google Search Console (per domain):**
+- Confirm/keep the existing Search Console property for the domain (same domain =
+  same property).
+- Submit the new `sitemap.xml` (`https://edgeofthearctic.travel/sitemap.xml`, and
+  the same on `.is`).
+- Use **URL Inspection → Request Indexing** on the key pages (home, tours, top
+  destinations; the restaurant page on `.is`) to nudge Google to recrawl sooner.
+- Over the next 1–3 weeks, watch the **Pages/Coverage** report and add redirects for
+  any old URLs it flags as 404.
+
+**Net effect:** because the new sites are *more* SEO-complete than the old ones
+(working links, unique titles/descriptions, structured data, no dead/duplicate pages,
+correct product mapping), rankings should **hold and then improve** — not drop —
+provided the redirects and sitemap steps above are done. Expect a brief settle of a
+few days to a couple of weeks while Google recrawls the same domain.
+
+**One extra for the restaurant:** the biggest driver of "restaurant near Akureyri"
+searches and star ratings is the **Google Business Profile** (the Maps listing), which
+is separate from the website and unaffected by this change. Make sure that profile
+lists `edgeofthearctic.is` as the website, and use the review link on the new `/eat/`
+page to funnel happy diners into reviews.
+
+---
+
 ## 5. Payments & booking (.travel)
 
 - **WeTravel** runs the scheduled group-trip bookings (card, bank transfer, payment
