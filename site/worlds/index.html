@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ============================================================
+       SEO — primary target: "IDFPA Bench Press World Championship 2026 Iceland"
+       TODO: confirm exact event name, dates & venue with Nik/IDFPA
+       ============================================================ -->
+  <title>IDFPA Bench Press World Championship 2026 — Hjalteyri, Iceland</title>
+  <meta name="description" content="The IDFPA Bench Press World Championship comes to Hjalteyri, North Iceland in October 2026. Register through IDFPA, then book your accommodation, rental car, airport transfer and tours here." />
+  <link rel="canonical" href="https://worlds.edgeofthearctic.travel/" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="IDFPA Bench Press World Championship 2026 — Hjalteyri, Iceland" />
+  <meta property="og:description" content="October 2026, Hjalteyri, North Iceland. Register through IDFPA, then plan your trip: rooms, cars, transfers and tours." />
+  <meta property="og:url" content="https://worlds.edgeofthearctic.travel/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg:#0e1116; --surface:#161b22; --surface-2:#1c232d;
+      --text:#e8edf3; --muted:#9aa7b6; --line:#263041;
+      --accent:#e8482b;         /* championship red */
+      --accent-2:#2f81f7;       /* iceland blue */
+      --radius:14px; --maxw:1080px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f8fb; --surface:#ffffff; --surface-2:#eef2f7;
+        --text:#12181f; --muted:#5a6673; --line:#e2e8f0;
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+
+    /* ---------- Hero ---------- */
+    .hero{
+      position:relative; text-align:center; color:#fff;
+      padding:96px 20px 84px;
+      background:
+        radial-gradient(1200px 500px at 50% -10%, rgba(47,129,247,.35), transparent 60%),
+        linear-gradient(180deg,#0b0e13 0%, #11161f 100%);
+      border-bottom:1px solid var(--line);
+    }
+    .eyebrow{
+      display:inline-block; letter-spacing:.14em; text-transform:uppercase;
+      font-size:12.5px; font-weight:700; color:#c9d4e2;
+      border:1px solid rgba(255,255,255,.22); border-radius:999px;
+      padding:6px 14px; margin-bottom:22px;
+    }
+    .hero h1{
+      font-size:clamp(30px,6vw,58px); line-height:1.05; margin:0 0 14px; font-weight:800;
+    }
+    .hero .accent{color:var(--accent)}
+    .hero p.lead{
+      max-width:640px; margin:0 auto 30px; font-size:clamp(16px,2.3vw,20px); color:#cbd5e1;
+    }
+    .meta-row{
+      display:flex; gap:22px; justify-content:center; flex-wrap:wrap;
+      color:#aeb9c7; font-size:15px; margin-bottom:34px;
+    }
+    .meta-row span{display:inline-flex; align-items:center; gap:8px}
+    .cta-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
+    .btn{
+      display:inline-block; padding:15px 26px; border-radius:12px; font-weight:700;
+      text-decoration:none; font-size:16px; transition:transform .08s ease, filter .15s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{background:var(--accent); color:#fff}
+    .btn-primary:hover{filter:brightness(1.07)}
+    .btn-ghost{background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.24)}
+    .btn-ghost:hover{background:rgba(255,255,255,.14)}
+
+    /* ---------- Sections ---------- */
+    section{padding:64px 0}
+    .section-head{max-width:640px; margin:0 auto 40px; text-align:center}
+    .section-head h2{font-size:clamp(24px,4vw,34px); margin:0 0 10px; font-weight:800}
+    .section-head p{color:var(--muted); margin:0}
+
+    /* ---------- Plan-your-trip cards ---------- */
+    .grid{
+      display:grid; gap:18px;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    }
+    .card{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+      padding:26px 22px; display:flex; flex-direction:column; gap:10px;
+    }
+    .card .ico{font-size:26px}
+    .card h3{margin:2px 0 0; font-size:18px}
+    .card p{margin:0; color:var(--muted); font-size:14.5px; flex:1}
+    .card a.link{
+      margin-top:6px; font-weight:700; text-decoration:none; color:var(--accent-2);
+      font-size:14.5px;
+    }
+    .card a.link:hover{text-decoration:underline}
+
+    /* ---------- Info strip ---------- */
+    .info{background:var(--surface-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+    .info .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .info h3{margin:0 0 6px; font-size:16px}
+    .info p{margin:0; color:var(--muted); font-size:14.5px}
+
+    /* ---------- Footer ---------- */
+    footer{padding:48px 0 60px; text-align:center; color:var(--muted); font-size:14px}
+    footer .partner{color:var(--text); font-weight:700}
+    footer a{color:var(--accent-2); text-decoration:none}
+
+    .note{ /* build-time reminder banner — DELETE before handover */
+      background:#3a2a00; color:#ffd479; text-align:center; font-size:13px;
+      padding:8px 16px; border-bottom:1px solid #5a4300;
+    }
+    @media (prefers-color-scheme: light){ .note{background:#fff4d6; color:#7a5b00; border-color:#f0dca0} }
+  </style>
+</head>
+<body>
+
+  <!-- DRAFT banner — remove before going live / handover -->
+  <div class="note">Draft landing page — placeholder links & dates. Not yet live.</div>
+
+  <!-- ============================== HERO ============================== -->
+  <header class="hero">
+    <span class="eyebrow">IDFPA · World Championship</span>
+    <h1>Bench Press <span class="accent">World Championship</span><br />Hjalteyri, Iceland</h1>
+    <p class="lead">The world's strongest bench pressers come to North Iceland this October. Compete, then explore the Arctic.</p>
+    <div class="meta-row">
+      <span>📅 October 2026 <!-- TODO: exact dates --></span>
+      <span>📍 Hjalteyri, North Iceland</span>
+      <span>🏋️ Sanctioned by IDFPA</span>
+    </div>
+    <div class="cta-row">
+      <!-- TODO: replace # with the official IDFPA registration URL -->
+      <a class="btn btn-primary" href="#" rel="noopener">Register with IDFPA →</a>
+      <a class="btn btn-ghost" href="#plan">Plan your trip</a>
+    </div>
+  </header>
+
+  <!-- ============================== PLAN YOUR TRIP ============================== -->
+  <section id="plan">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Plan your trip</h2>
+        <p>Registered? Here's everything you need to get to Hjalteyri and make a trip of it — arranged with your local hosts on the ground.</p>
+      </div>
+      <div class="grid">
+
+        <div class="card">
+          <div class="ico">🛏️</div>
+          <h3>Where to stay</h3>
+          <p>Guesthouses and hotels near the venue in Hjalteyri and nearby Akureyri. Book early — space is limited around the championship.</p>
+          <a class="link" href="#">Find accommodation →</a><!-- TODO: WeTravel / booking link -->
+        </div>
+
+        <div class="card">
+          <div class="ico">🚗</div>
+          <h3>Rental car</h3>
+          <p>Pick up at Keflavík (KEF) or Akureyri airport. The most flexible way to get around the north.</p>
+          <a class="link" href="#">Reserve a car →</a><!-- TODO: rental affiliate link -->
+        </div>
+
+        <div class="card">
+          <div class="ico">🚐</div>
+          <h3>Airport transfer</h3>
+          <p>Shared and private transfers from Keflavík / Akureyri straight to Hjalteyri. Skip the long drive after your flight.</p>
+          <a class="link" href="#">Book a transfer →</a><!-- TODO: WeTravel transfer product -->
+        </div>
+
+        <div class="card">
+          <div class="ico">🌋</div>
+          <h3>Pre-competition tour</h3>
+          <p>Arrive a few days early and see the highlights of North Iceland before you step on the platform.</p>
+          <a class="link" href="#">See the pre-tour →</a><!-- TODO: WeTravel tour product -->
+        </div>
+
+        <div class="card">
+          <div class="ico">❄️</div>
+          <h3>Post-competition tour</h3>
+          <p>Celebrate the lift. Northern lights, whales and the Arctic coast once the championship wraps.</p>
+          <a class="link" href="#">See the post-tour →</a><!-- TODO: WeTravel tour product -->
+        </div>
+
+        <div class="card">
+          <div class="ico">✈️</div>
+          <h3>Getting to Iceland</h3>
+          <p>Fly into Keflavík (KEF), then a short domestic hop or scenic drive to the north. We'll help you route it.</p>
+          <a class="link" href="#info">Travel tips →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PRACTICAL INFO ============================== -->
+  <section id="info" class="info">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Good to know</h2>
+        <p>A championship above the 65th parallel — a little planning goes a long way.</p>
+      </div>
+      <div class="grid">
+        <div><h3>🌡️ October weather</h3><p>Cool and changeable: roughly 0–7 °C, wind and the first snow possible. Pack layers and waterproofs.</p></div>
+        <div><h3>🌌 Northern lights</h3><p>October nights are dark enough for aurora — one of the best reasons to add a day or two either side.</p></div>
+        <div><h3>🚘 Getting around</h3><p>Hjalteyri sits ~25 min north of Akureyri. A car or pre-booked transfer is the easiest way in.</p></div>
+        <div><h3>💳 Practicalities</h3><p>Currency is the Icelandic króna (ISK); cards work everywhere. Language: Icelandic, with English widely spoken.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer>
+    <div class="wrap">
+      <p>Registration &amp; competition run by <strong>IDFPA</strong>.<br />
+      Travel &amp; local logistics by <span class="partner">Edge of the Arctic</span>.</p>
+      <p style="margin-top:14px">
+        Questions about getting here? <a href="mailto:nik@edgeofthearctic.travel">nik@edgeofthearctic.travel</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

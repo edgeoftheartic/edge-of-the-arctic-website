@@ -94,6 +94,16 @@ export default {
     const url = new URL(request.url);
     const isTempHost = url.hostname.endsWith(".workers.dev");
 
+    // Bench Press Worlds landing page lives on its own subdomain
+    // (worlds.edgeofthearctic.travel), served from site/worlds/ so the tours
+    // site behaviour is completely untouched. Inert for every other host.
+    if (url.hostname.startsWith("worlds.")) {
+      const assetUrl = new URL(url);
+      assetUrl.pathname =
+        url.pathname === "/" ? "/worlds/index.html" : "/worlds" + url.pathname;
+      return env.ASSETS.fetch(new Request(assetUrl, request));
+    }
+
     // 301 old URLs → new pages (match with or without a trailing slash).
     const cleanPath = url.pathname.replace(/\/$/, "") || "/";
     const redirectTo = REDIRECTS[cleanPath];
